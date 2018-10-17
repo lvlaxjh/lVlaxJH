@@ -3,13 +3,14 @@
 from aip import AipOcr
 from aip import AipNlp
 import jieba
+import calendar
 
 #API
 APP_ID = '14407442'
 API_KEY = 'VQTrvnsND3KH3GFpG5HXkmG8'
 SECRET_KEY = 'ziT27q1IgKQbFeAqNK2BBFPCyqaVwEiq'
-client1 = AipNlp(APP_ID, API_KEY, SECRET_KEY)
-client2 = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+client1 = AipNlp(APP_ID, API_KEY, SECRET_KEY)#文字时间匹配
+client2 = AipOcr(APP_ID, API_KEY, SECRET_KEY)#图片文字识别
 
 
 def Words_Result(_img):
@@ -58,8 +59,7 @@ def Find_Time(_Words_str,_Cutl_Words=[]):
     }
     #
 
-    text=_Words_Str
-    lexer=client1.lexer(text)
+    lexer=client1.lexer(_Words_Str)
     for i in lexer['items']:
         if i['ne']=='TIME':
             _Time_Words_L.append(i['item'])
@@ -72,8 +72,14 @@ def Find_Time(_Words_str,_Cutl_Words=[]):
     #     if _Every_Words!='':
     #         print(_Every_Words)
 
+def Find_Calender(_Time_List):
+    _Time_Calender=calendar.month(2018,2)
+    print(_Time_Calender)
+
+
 
 
 if __name__ == '__main__':
     _Words_Str, _Cutl_Words = Words_Result('4.png')
-    print(Find_Time(_Words_Str,_Cutl_Words))
+    _Time_Words_L=Find_Time(_Words_Str,_Cutl_Words)
+    Find_Calender(_Time_Words_L)
