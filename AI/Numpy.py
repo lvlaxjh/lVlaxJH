@@ -1,12 +1,62 @@
 # -*- coding: utf-8 -*-
-import numpy as np
-# 从列表中获得迭代器
-import numpy as np
-list = range(5)
-it = iter(list)
-# 使用迭代器创建 ndarray
-x = np.fromiter(it, dtype =  float)
-print (x)
-
-
-
+from numpy import *
+import tensorflow
+a=arange(15).reshape(3,5)
+print(a)
+print(a.shape)
+print(a.ndim)
+print(a.dtype.name)
+print(a.itemsize)
+print(a.size)
+print(type(a))
+b_list=[1,2,3,4,5]
+b=array(b_list)
+print(b)
+print(type(b))
+print(b.dtype)
+print(type(b_list))
+c=array([(1.5,2,3),(3,4,5)],dtype=complex)
+print(c)
+d=zeros(((3,4)))
+print(d)
+e=ones((2,3,4),dtype=int16)
+print(e)
+f=arange(0,20,5)
+print(f)
+a=range(6)#一维数组
+print(a)
+b=arange(12).reshape(4,3)#二维数组
+print(b)
+c=arange(24).reshape(2,3,4)#三维数组
+print(c)
+print('=============')
+a=array([20,30,40,50])
+b=arange(4)
+c=a-b
+print(a)
+print(b)
+print(c)
+b=b**2
+print(b)
+a=10*sin(a)
+print(a)
+a=a<35
+print(a)
+print('------------')
+a=array(([[3,1],[2,1]]))
+b=array(([[2,0],[3,4]]))
+print(a*b)
+print(dot(a,b))
+a+=b
+print(a)
+print('=============')
+b=arange(12).reshape(3,4)
+print(b)
+print('=============')
+print(b.sum(axis=1))
+print(b.min(axis=1))
+print(b.max(axis=0))
+print(b.cumsum(axis=0))
+print('-------------')
+a=arange(10)**3
+print(a)
