@@ -6,7 +6,7 @@ import urllib.request
 import requests
 import json
 
-def Use_Tl_xiaomai(_inputs,_L1,_L2):#图灵---小麦
+def Use_Tl_xiaomai(_T_re_Chat,_inputs,_L1,_L2):#图灵---小麦
     #API_KEY='87490f6fe8f640d89b9f97c476a5dac4'
     #API_URL='http://openapi.tuling123.com/openapi/api/v2'
     API_KEY='fb8fcc789ef4473bb96e790b45a07832'
