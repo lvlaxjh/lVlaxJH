@@ -42,53 +42,36 @@ def Use_Tl_xiaomaike(_inputs):#图灵---小麦可
         TL_str_xmk=jd['text']
         #print('\nTuling: '+TL_str)#输出结果
         return TL_str_xmk
-    #http://www.tuling123.com/openapi/api?key=87490f6fe8f640d89b9f97c476a5dac4&info=***    
-    
 
-    
-#if __name__=="__main__":
-#    try:
-#        sfile=open('SSlanguage1.txt','a+')
-#        #print('open')
-#    except OSError as reason:
-#        print('Error'+str(reason))
-#        time.sleep(3)
-#        exit(1)
 
-#    try:
-#        afile=open('AAlanguage1.txt','a+')
-#        #print('open')
-#    except OSError as reason:
-#        print('Error'+str(reason))
-#        time.sleep(3)
-#        exit(1)
-#    while True:
-#        I_input=input()
-#        sfile.write('SS'+I_input)
-#        sfile.write('\n')
-#        tlstr=Use_Tl_xiaomai(I_input)
-#        print(tlstr)
-#        afile.write('AA'+tlstr)
-#        afile.write('\n')
-#        isbreak=input('~pass&~:(p)')
-#        if isbreak=='p':
-#            break
-#    #print('~'+I_input)
-#    flag=0
-#    #while True:
-#    #    flag+=1
-#    #    print(flag)
-#    #    TL_Str_xm=Use_Tl_xiaomai(I_input)
-#    #    print('1~~~:'+TL_Str_xm)
-#    #    sfile.write('SS'+TL_Str_xm)
-#    #    sfile.write('\n')
-#    #    time.sleep(1)
-#    #    TL_Str_xmk=Use_Tl_xiaomaike(TL_Str_xm)
-#    #    print('2~~~:'+TL_Str_xmk)
-#    #    afile.write('AA'+TL_Str_xmk)
-#    #    afile.write('\n')
-#    #    time.sleep(1)
-#    #    if flag==10:
-#    #        break
-#    sfile.close()
-#    afile.close()
+def Use_Tl_xiaomaikesi(_inputs):  # 图灵---麦克斯
+    API_KEY = '7b84344e82ba4409a9e99b1abf0386c2'
+    API_URL = 'http://openapi.tuling123.com/openapi/api/v2'
+    while True:
+        info = _inputs  # 输入信息
+        url = 'http://www.tuling123.com/openapi/api?key=' + API_KEY + '&info=' + info
+        res = requests.get(url)  # 得到网页HTML代码
+        res.encoding = 'utf-8'  # 防止中文乱码
+        jd = json.loads(res.text)  # 将得到的json格式的信息转换为Python的字典格式
+        TL_str_xmk = jd['text']
+        # print('\nTuling: '+TL_str)#输出结果
+        return TL_str_xmk
+
+if __name__=="__main__":
+   chat=input()
+   maikesi=Use_Tl_xiaomaikesi(chat)
+   print(maikesi)
+   f=open(r'txt\\yuliao.txt', 'a+', encoding='UTF-8')
+   f.write(chat+'\n')
+   flag=0
+   while True:
+       flag+=1
+       # time.sleep(1)
+       xiaomaike=Use_Tl_xiaomaike(maikesi)
+       print(xiaomaike)
+       maikesi=Use_Tl_xiaomaikesi(xiaomaike)
+       print(maikesi)
+       f.write(xiaomaike+'\n')
+       f.write(maikesi+'\n')
+       if flag==50:
+           break;

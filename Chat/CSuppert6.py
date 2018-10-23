@@ -69,10 +69,11 @@ def ChatTF(_Cfile, _Ffile, _inputs, _Return_li):
     Chat_bool, T_re_chat = Xiaomai(_Cfile, _Ffile, _inputs, _Return_li)
     if Chat_bool:
         print(T_re_chat)
+        print(_Return_li)
     else:
-        print(TuLingAI.Use_Tl_xiaomai(T_re_chat, _inputs, open(r'txt\\language.txt', 'a+', encoding='UTF-8'),
-                                      open(r'txt\\language.txt', 'r', encoding='UTF-8')))
-
+        TuLing_Chat=TuLingAI.Use_Tl_xiaomai(T_re_chat, _inputs, open(r'txt\\language.txt', 'a+', encoding='UTF-8'),
+                                      open(r'txt\\language.txt', 'r', encoding='UTF-8'), _Return_li)
+        print(TuLing_Chat)
 
 # 小麦
 def Xiaomai(_Cfile, _Ffile, _inputs, _Return_li):
@@ -88,8 +89,8 @@ def Xiaomai(_Cfile, _Ffile, _inputs, _Return_li):
             else:
                 return False, ''
             break
-        if len(_Return_li) != 0:
-            if Chat_A != False:
+        if C2_Ins == '':
+            if len(_Return_li) != 0:
                 T_re_chat = random.choice(_Return_li)
                 # print(T_re_chat)
                 return True, T_re_chat
@@ -100,8 +101,6 @@ def Xiaomai(_Cfile, _Ffile, _inputs, _Return_li):
         Chat_boOL = Chat_inputs(_inputs, C1_Ins)
         if Chat_boOL:
             Chat_A = A_Chat(C2_Ins, _inputs, _Return_li)
-        else:
-            Chat_A = False
 
 
 # 输入处理
@@ -137,8 +136,6 @@ def Chat_inputs(_Cinput, _C):
 
 # 输出处理
 def A_Chat(_A_Chat, _INPUT, _Return_li):
-    # Cut_in_LI = jieba.lcut(_INPUT,cut_all=False)
-    # Cut_C_li = jieba.lcut(_A_Chat,cut_all=False)
     _Return_li.append(_A_Chat)
     if len(_Return_li):
         return _Return_li
