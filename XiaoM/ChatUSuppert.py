@@ -5,9 +5,9 @@ import time
 import re
 import sys
 import datetime
-import TuLingAI
+import ChatUTuLingAI as cai
 import random
-import FUN
+import ChatUFUN as cf
 
 
 # 功能性处理
@@ -42,22 +42,22 @@ def FunTF(_Cfile, _Ffile, _inputs):
             return_true_11 = return_true_rate1
         if return_true_11 >= Ftrue_rate:  # 成功匹配正确率
             if F2_Ins == '_time':
-                if FUN.Fun_time():
+                if cf.Fun_time():
                     return True
             if F2_Ins == '_ip':
-                if FUN.Fun_ip():
+                if cf.Fun_ip():
                     return True
             if F2_Ins == '_ipaddr':
-                if FUN.Fun_ipaddr():
+                if cf.Fun_ipaddr():
                     return True
             if F2_Ins == '_weather':
-                if FUN.Fun_Weather():
+                if cf.Fun_Weather():
                     return True
             if F2_Ins == '_kuaidi':
-                if FUN.Fun_kuaidi():
+                if cf.Fun_kuaidi():
                     return True
             if F2_Ins == '_zidian':
-                if FUN.Fun_ZD():
+                if cf.Fun_ZD():
                     return True
             flag = 0
         else:
@@ -71,7 +71,7 @@ def ChatTF(_Cfile, _Ffile, _inputs, _Return_li):
         print(T_re_chat)
         print(_Return_li)
     else:
-        TuLing_Chat=TuLingAI.Use_Tl_xiaomai(T_re_chat, _inputs, open(r'txt\\language.txt', 'a+', encoding='UTF-8'),
+        TuLing_Chat=cai.Use_Tl_xiaomai(T_re_chat, _inputs, open(r'txt\\language.txt', 'a+', encoding='UTF-8'),
                                       open(r'txt\\language.txt', 'r', encoding='UTF-8'), _Return_li)
         print(TuLing_Chat)
 
@@ -106,7 +106,7 @@ def Xiaomai(_Cfile, _Ffile, _inputs, _Return_li):
 # 输入处理
 def Chat_inputs(_Cinput, _C):
     flag = 0
-    Ctrue_rate = 0.66  # 对话---正确率(>=返回)
+    Ctrue_rate = 0.80  # 对话---正确率(>=返回)
     Cinput_list = jieba.lcut(_Cinput, cut_all=False)  # 切片
     C_list = jieba.lcut(_C, cut_all=False)  # 切片
     if len(C_list) >= len(Cinput_list):  # 语料长,进行匹配

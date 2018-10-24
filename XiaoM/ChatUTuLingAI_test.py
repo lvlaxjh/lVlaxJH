@@ -61,7 +61,7 @@ if __name__=="__main__":
    chat=input()
    maikesi=Use_Tl_xiaomaikesi(chat)
    print(maikesi)
-   f=open(r'txt\\yuliao.txt', 'a+', encoding='UTF-8')
+   f=open(r'txt\yuliao.txt', 'a+', encoding='UTF-8')
    f.write(chat+'\n')
    flag=0
    while True:
