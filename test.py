@@ -3,34 +3,29 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-def T_array(_i,_T_l):
+#初始化
+_j=[]
+_next=[]
+#
+str=input('输入字符串:')
+for i in range(len(str)):
+    _j.append(i+1)
+
+for i in range(len(str)):
+    flag=i+1
+    if flag==1:
+        _next.append(0)
+    elif flag==2:
+        _next.append(1)
+    else:
+        for n in range(flag-2,0,-1):
+            flag2=n
+            # print(flag2)
+            print(str[0:flag2])
+            print(str[i-flag2:i])
+    print('---')
 
 
-def test():
-    print('输入字符串')
-    _T = input()
-    _T_l = []
-    _j = []
-    _next = []
-    for i in range(len(_T)):
-        _j.append(i + 1)
-    for i in _T:
-        _T_l.append(i)
-    _dic={}
-    for i in _j:
-        _dic[i]=_T_l[i-1]
-    for i in _j:
-        if i == 1:
-            _next.append(1)
-        elif i == 2:
-            _next.append(2)
-        else:
-            T_array(i,_T_l)
-
-    print(_j)
-    print(_T_l)
-    print(_dic)
-    print(_next)
-
-
-test()
+print(_j)
+print(str)
+print(_next)
