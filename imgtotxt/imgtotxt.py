@@ -74,40 +74,52 @@ def Find_num(_AWords_str):
         'cn_num': ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
     }
     for _alb in _Num_Dict['alb_num']:
-        if _AWords_str==_alb:
+        if _AWords_str == _alb:
             return True;
     for _cn in _Num_Dict['cn_num']:
-        if _AWords_str==_cn:
+        if _AWords_str == _cn:
             return True;
+
+
 def Find_Name(_Words_str=''):
     _Time_Dict = {
-        'time_zhou':['周']
+        'time_zhou': ['周']
     }
-    if _Words_str==_Time_Dict['time_zhou'][0]:
+    if _Words_str == _Time_Dict['time_zhou'][0]:
         return True
+
+
 def Find_Time(_Words_str=''):
     # 定义常量
-    _Words_Li=[]
+    _Words_Li = []
     _Num = []
     _Find_word = ''
-    _Twords_Front=''
-    _Twords_After=''
+    _Twords_Front = ''
+    _Twords_After = ''
     for _Words in _Words_str:
         _Words_Li.append(_Words)
     print(_Words_Li)
     for _Num in range(len(_Words_Li)):
-        _WordsL=_Words_Li[_Num]
+        _WordsL = _Words_Li[_Num]
         if Find_num(_WordsL):
-            for _n in range(1,6):
-                    _Twords_Front=_Twords_Front+_Words_Li[_Num-_n]
-                    _Twords_After=_Twords_After+_Words_Li[_Num+_n]
+            while True:
+                _Twords_Front = _Words_Li[_Num - 1]
+                if Find_num(_Twords_Front):
+                    pass
+                else:
+                    pass
+            while True:
+                _Twords_After = _Words_Li[_Num + 1]
+                if Find_num(_Twords_After):
+                    pass
+                else:
+                    pass
 
-            print(_Twords_Front,_WordsL,_Twords_After)
+            print(_Twords_Front, _WordsL, _Twords_After)
         else:
             pass
         _Twords_Front = ''
         _Twords_After = ''
-
 
 
 def Find_Calender(_Time_List):
@@ -135,4 +147,3 @@ def Find_Calender(_Time_List):
 if __name__ == '__main__':
     str = 'lyh本周三下午14点至15点开团课+班会,教三108教室。这次团课有发奖品的环节~大家准时参加哦。梦之翼报名还有吗?抓紧时间交给我'
     Find_Time(str)
-
