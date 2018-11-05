@@ -182,28 +182,36 @@ def Exhaustive_GCD(Num1, Num2):
 def LCM(Num1, Num2):
     return int((Num1 * Num2) / Division_GCD(Num1, Num2))
 
+
 # -------------------------------------------------------------------------
-#Permutations
-def Permutations_T(Step,Num_List=[]):
-    if len(Num_List)==Step+1:
+# Permutations
+# 传参:待排列列表(list)
+# 返回:排列后所有(list)
+def PerMain(Step, Num_List=[]):
+    if len(Num_List) == Step + 1:
         print(Num_List)
         return
     else:
-        for i in range(Step,len(Num_List)):
-            Num_List[Step],Num_List[i]=Num_List[i],Num_List[Step]
-            Permutations_T(Step+1,Num_List)
-            Num_List[Step],Num_List[i]=Num_List[i],Num_List[Step]
+        for i in range(Step, len(Num_List)):
+            Num_List[Step], Num_List[i] = Num_List[i], Num_List[Step]
+            PerMain(Step + 1, Num_List)
+            Num_List[Step], Num_List[i] = Num_List[i], Num_List[Step]
+
+
+def Permutations_T(Num_List=[]):
+    Step = 0
+    PerMain(Step, Num_List)
 
 
 # -------------------------------------------------------------------------
 # 24Point
-def Point_24(Num1,Num2,Num3,Num4):
-    if Num1<0 or Num1>13 or Num2<0 or Num2>13 or Num3<0 or Num3>13 or Num4<0 or Num4>13:
+def Point_24(Num1, Num2, Num3, Num4):
+    if Num1 < 0 or Num1 > 13 or Num2 < 0 or Num2 > 13 or Num3 < 0 or Num3 > 13 or Num4 < 0 or Num4 > 13:
         return False
-    Permutation_Total =1
-    for i in range(4):
-        Permutation_Total=Permutation_Total*(i+1)
+    Permutation_Total = 1
+    for i in range(7):
+        Permutation_Total = Permutation_Total * (i + 1)
     # print(list(itertools.permutations(Num_Li,4)))
 
 
-Permutations_T(0,['a','b','c','b','d'])
+Permutations_T(['a', 'b', 'c'])
