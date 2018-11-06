@@ -4,6 +4,20 @@
 # KMP algorithm
 # 传参:字符串(str),字符串(str)
 # 返回:正确匹配次数(int)
+def KMP_next2(_str):
+    _next = []
+    j,k=1,0
+    _next.insert(1,0)
+    while(j<len(_str)):
+        if k==0 or _str[j-1]==_str[k-1]:
+            j+=1
+            k+=1
+            _next.insert(j,k)
+        else:
+            k=_next[k-1]
+    return _next
+
+
 def KMP_next(_str):
     # 初始化
     _j = []
@@ -33,8 +47,8 @@ def KMP_next(_str):
             flag3 = 0
     for i in str:
         str_l.append(i)
-    return _j, str_l, _next
-
+    # return _j, str_l, _next
+    return _next
 
 def KMP(_strF, _strS):
     # 初始化
@@ -53,6 +67,7 @@ def KMP(_strF, _strS):
         strF = _strS
         strS = _strF
     _j, strS_l, _next = KMP_next(strS)
+    print(_next)  # //////////////////////////////////
     for i in strF:
         strF_l.append(i)
     if len(strS) == 1:
@@ -78,12 +93,10 @@ def KMP(_strF, _strS):
             else:
                 jmp -= 1
             if TS == len(strS):
-                print(same_str)
+                # print(same_str)
                 same += 1
                 same_str = ''
                 TS = 0
-
-    print(same)
     return same
 
 
@@ -187,15 +200,25 @@ def LCM(Num1, Num2):
 # Permutations
 # 传参:待排列列表(list)
 # 返回:排列后所有(list)
+
 def PerMain(Step, Num_List=[]):
     if len(Num_List) == Step + 1:
         print(Num_List)
         return
     else:
         for i in range(Step, len(Num_List)):
-            Num_List[Step], Num_List[i] = Num_List[i], Num_List[Step]
-            PerMain(Step + 1, Num_List)
-            Num_List[Step], Num_List[i] = Num_List[i], Num_List[Step]
+            if Is_Equal(Num_List, Step, i):
+                continue
+            else:
+                Num_List[Step], Num_List[i] = Num_List[i], Num_List[Step]
+                PerMain(Step + 1, Num_List)
+                Num_List[Step], Num_List[i] = Num_List[i], Num_List[Step]
+
+
+def Is_Equal(Num_List, Left, Right):
+    for i in range(Left, Right):
+        if Num_List[i] == Num_List[Right]:
+            return True
 
 
 def Permutations_T(Num_List=[]):
@@ -204,14 +227,17 @@ def Permutations_T(Num_List=[]):
 
 
 # -------------------------------------------------------------------------
-# 24Point
-def Point_24(Num1, Num2, Num3, Num4):
-    if Num1 < 0 or Num1 > 13 or Num2 < 0 or Num2 > 13 or Num3 < 0 or Num3 > 13 or Num4 < 0 or Num4 > 13:
-        return False
-    Permutation_Total = 1
-    for i in range(7):
-        Permutation_Total = Permutation_Total * (i + 1)
-    # print(list(itertools.permutations(Num_Li,4)))
+# Sort
+#
+# Bubble Sort
+def Bubble_Sort(Num_List=[]):
+    for i in range(len(Num_List) - 1):
+        for j in range(len(Num_List) - 1 - i):
+            if Num_List[j] > Num_List[j + 1]:
+                flag = Num_List[j + 1]
+                Num_List[j + 1] = Num_List[j]
+                Num_List[j] = flag
+    return Num_List
 
 
-Permutations_T(['a', 'b', 'c'])
+# print(KMP("asdaxwqdwqdcdscsdcsqwdxqsad","abcabcd"))
