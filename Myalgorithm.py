@@ -3,22 +3,9 @@
 # -------------------------------------------------------------------------
 # KMP algorithm
 # 传参:字符串(str),字符串(str)
-# 返回:正确匹配次数(int)
-def KMP_next2(_str):
-    _next = []
-    j,k=1,0
-    _next.insert(1,0)
-    while(j<len(_str)):
-        if k==0 or _str[j-1]==_str[k-1]:
-            j+=1
-            k+=1
-            _next.insert(j,k)
-        else:
-            k=_next[k-1]
-    return _next
+# 返回:字符串匹配位置(list)
 
-
-def KMP_next(_str):
+def MY_KMP_next(_str):
     # 初始化
     _j = []
     _next = []
@@ -50,7 +37,8 @@ def KMP_next(_str):
     # return _j, str_l, _next
     return _next
 
-def KMP(_strF, _strS):
+
+def MY_KMP(_strF, _strS):
     # 初始化
     strF = ''
     strS = ''
@@ -66,7 +54,7 @@ def KMP(_strF, _strS):
     else:
         strF = _strS
         strS = _strF
-    _j, strS_l, _next = KMP_next(strS)
+    _next = MY_KMP_next(strS)
     print(_next)  # //////////////////////////////////
     for i in strF:
         strF_l.append(i)
@@ -98,6 +86,55 @@ def KMP(_strF, _strS):
                 same_str = ''
                 TS = 0
     return same
+
+
+def KMP_next(_str):
+    _next = []
+    j, k = 1, 0
+    _next.insert(1, 0)
+    while (j < len(_str)):
+        if k == 0 or _str[j - 1] == _str[k - 1]:
+            j += 1
+            k += 1
+            _next.insert(j, k)
+        else:
+            k = _next[k - 1]
+    return _next
+
+
+def KMP_Val(_str, _next):
+    pass
+
+
+def KMP(_strF, _strS):
+    strF = ""
+    strS = ""
+    if len(_strF) > len(_strS):
+        strF = _strF
+        strS = _strS
+    else:
+        strF = _strS
+        strS = _strF
+    next = KMP_next2(strS)
+    Is_Find_Pos = []
+    cut_len = 0
+    while (True):
+        i = 0
+        j = 0
+        if len(strF) <= len(strS):
+            return Is_Find_Pos
+        while (i <= len(strF) and j <= len(strS)):
+            if j == 0 or strF[i - 1] == strS[j - 1]:
+                i += 1
+                j += 1
+            else:
+                j = next[j - 1]
+        if j > len(strS):
+            Is_Find_Pos.append(i - len(strS) + cut_len)
+            strF = strF[i - len(strS) + len(strS) - 1:]
+            cut_len = i - len(strS) + len(strS) - 1
+        else:
+            return Is_Find_Pos
 
 
 # -------------------------------------------------------------------------
@@ -240,4 +277,15 @@ def Bubble_Sort(Num_List=[]):
     return Num_List
 
 
-# print(KMP("asdaxwqdwqdcdscsdcsqwdxqsad","abcabcd"))
+# Selection Sort
+def Selection_Sort(Num_List=[]):
+    MinNum, temp = 0, 0
+    for i in range(len(Num_List) - 1):
+        MinNum = i
+        for j in range(i + 1, len(Num_List)):
+            if Num_List[j] < Num_List[MinNum]:
+                MinNum = j
+        temp = Num_List[i]
+        Num_List[i] = Num_List[MinNum]
+        Num_List[MinNum] = temp
+    return Num_List
