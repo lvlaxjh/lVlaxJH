@@ -102,8 +102,26 @@ def KMP_next(_str):
     return _next
 
 
-def KMP_Val(_str, _next):
-    pass
+def KMP_Val(_str):
+    _nextval = []
+    j = 1
+    k = 0
+    _nextval.insert(0, 0)
+    while (j < len(_str)):
+        if k == 0 or _str[j - 1] == _str[k - 1]:
+            j += 1
+            k += 1
+            if _str[j - 1] != _str[k - 1]:
+                _nextval.insert(j - 1, k)
+            else:
+
+                if j > len(_nextval):
+                    _nextval.insert(j - 1, _nextval[k - 2])
+                else:
+                    _nextval[j - 1] = _nextval[k - 1]
+        else:
+            j = _nextval[j - 1]
+    return _nextval
 
 
 def KMP(_strF, _strS):
@@ -289,3 +307,29 @@ def Selection_Sort(Num_List=[]):
         Num_List[i] = Num_List[MinNum]
         Num_List[MinNum] = temp
     return Num_List
+
+# Insertion Sort
+def Insertion_Sort(Num_List=[]):
+    PerIndex=0
+    Current=0
+    for i in range(1,len(Num_List)):
+        PerIndex=i-1
+        Current=Num_List[i]
+        while(PerIndex>=0 and Num_List[PerIndex]>Current):
+            Num_List[PerIndex+1]=Num_List[PerIndex]
+            PerIndex-=1
+        Num_List[PerIndex+1]=Current
+    return Num_List
+
+#Shell Sort
+def Shell_Sort(Num_List=[]):
+    step=int(len(Num_List)/3)
+    while (step>0):
+        for i in range(step,len(Num_List)):
+            while(i>=step and Num_List[i-step]>Num_List[i]):
+                Num_List[i],Num_List[i-step]=Num_List[i-step],Num_List[i]
+                i-=step
+        step=int(step/3)
+    return Num_List
+
+print(Shell_Sort([5,6,2,7,8,2]))
