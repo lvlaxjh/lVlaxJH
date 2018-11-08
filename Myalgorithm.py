@@ -308,28 +308,31 @@ def Selection_Sort(Num_List=[]):
         Num_List[MinNum] = temp
     return Num_List
 
+
 # Insertion Sort
 def Insertion_Sort(Num_List=[]):
-    PerIndex=0
-    Current=0
-    for i in range(1,len(Num_List)):
-        PerIndex=i-1
-        Current=Num_List[i]
-        while(PerIndex>=0 and Num_List[PerIndex]>Current):
-            Num_List[PerIndex+1]=Num_List[PerIndex]
-            PerIndex-=1
-        Num_List[PerIndex+1]=Current
+    PerIndex = 0
+    Current = 0
+    for i in range(1, len(Num_List)):
+        PerIndex = i - 1
+        Current = Num_List[i]
+        while (PerIndex >= 0 and Num_List[PerIndex] > Current):
+            Num_List[PerIndex + 1] = Num_List[PerIndex]
+            PerIndex -= 1
+        Num_List[PerIndex + 1] = Current
     return Num_List
 
-#Shell Sort
+
+# Shell Sort
 def Shell_Sort(Num_List=[]):
-    step=int(len(Num_List)/3)
-    while (step>0):
-        for i in range(step,len(Num_List)):
-            while(i>=step and Num_List[i-step]>Num_List[i]):
-                Num_List[i],Num_List[i-step]=Num_List[i-step],Num_List[i]
-                i-=step
-        step=int(step/3)
+    step = int(len(Num_List) / 3)
+    while (step > 0):
+        for i in range(step, len(Num_List)):
+            while (i >= step and Num_List[i - step] > Num_List[i]):
+                Num_List[i], Num_List[i - step] = Num_List[i - step], Num_List[i]
+                i -= step
+        step = int(step / 3)
     return Num_List
 
-print(Shell_Sort([5,6,2,7,8,2]))
+
+print(Shell_Sort([5, 6, 2, 7, 8, 2]))

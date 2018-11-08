@@ -8,6 +8,8 @@ import datetime
 import ChatUTuLingAI as cai
 import random
 import ChatUFUN as cf
+from aip import AipSpeech
+import os
 
 
 # 功能性处理
@@ -67,13 +69,48 @@ def FunTF(_Cfile, _Ffile, _inputs):
 # 输入输出处理
 def ChatTF(_Cfile, _Ffile, _inputs, _Return_li):
     Chat_bool, T_re_chat = Xiaomai(_Cfile, _Ffile, _inputs, _Return_li)
+    output = ''
     if Chat_bool:
+        output = T_re_chat
         print(T_re_chat)
-        print(_Return_li)
+        # print(_Return_li)
     else:
-        TuLing_Chat=cai.Use_Tl_xiaomai(T_re_chat, _inputs, open(r'txt\\language.txt', 'a+', encoding='UTF-8'),
-                                      open(r'txt\\language.txt', 'r', encoding='UTF-8'), _Return_li)
+        TuLing_Chat = cai.Use_Tl_xiaomai(T_re_chat, _inputs, open(r'txt\\language.txt', 'a+', encoding='UTF-8'),
+                                         open(r'txt\\language.txt', 'r', encoding='UTF-8'), _Return_li)
         print(TuLing_Chat)
+        output = TuLing_Chat
+    # print(output)
+    # Speak(output)
+
+
+def Speak(output):
+    """ 你的 APPID AK SK """
+    APP_ID = '14237339'
+    API_KEY = 'PUmLG4e2WAWn6DOrScxwnnpc'
+    SECRET_KEY = 'aORMRa60PpdEcv6qXAXA4YMmK0G8XFuX'
+
+    client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
+
+    result = client.synthesis(output, 'zh', 1, {
+        'spd': '4',
+        'pit': '5',
+        'vol': '7',
+        'per': '4'
+
+    })
+
+    # 识别正确返回语音二进制 错误则返回dict 参照下面错误码
+    if not isinstance(result, dict):
+        with open('auido.mp3', 'wb') as f:
+            f.write(result)
+
+    os.system('auido.mp3')
+    # pygame.mixer.init()
+    # track = pygame.mixer.music.load('auido.mp3')
+    # pygame.mixer.music.play()
+    # time.sleep(10)
+    # pygame.mixer.music.stop()
+
 
 # 小麦
 def Xiaomai(_Cfile, _Ffile, _inputs, _Return_li):
