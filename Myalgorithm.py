@@ -133,7 +133,7 @@ def KMP(_strF, _strS):
     else:
         strF = _strS
         strS = _strF
-    next = KMP_next2(strS)
+    next = KMP_next(strS)
     Is_Find_Pos = []
     cut_len = 0
     while (True):
@@ -335,4 +335,29 @@ def Shell_Sort(Num_List=[]):
     return Num_List
 
 
-print(Shell_Sort([5, 6, 2, 7, 8, 2]))
+# -------------------------------------------------------------------------
+def Create_Tree():
+    Tree=MainN()
+    return Tree
+def MainN():
+    Tree_List=[None,None,None]
+    DataNode=input()
+    if DataNode=='`':
+        return
+    Tree_List[1]=DataNode
+    Tree_List[0]=LeftN()
+    Tree_List[2]=RightN()
+    return Tree_List
+def LeftN():
+    Tree_List_L=MainN()
+    return Tree_List_L
+def RightN():
+    Tree_List_R=MainN()
+    return Tree_List_R
+
+def Preorder_Traversal(Tree_List=[]):
+    pass
+def Inorder_Traversal(Tree_List=[]):
+    pass
+def Postorder_Traversal(Tree_List=[]):
+    pass
