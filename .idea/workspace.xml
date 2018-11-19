@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9022ec65-f2b8-4553-8517-888605013f8c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Myalgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Myalgorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shield/Shield.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shield/Shield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/lVlaxJH$Myalgorithm.coverage" NAME="Myalgorithm Coverage Results" MODIFIED="1542437442596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/lVlaxJH$Myalgorithm.coverage" NAME="Myalgorithm Coverage Results" MODIFIED="1542627499936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/lVlaxJH$XiaoM.coverage" NAME="XiaoM Coverage Results" MODIFIED="1542290618689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XiaoM" />
     <SUITE FILE_PATH="coverage/lVlaxJH$Shield.coverage" NAME="Shield Coverage Results" MODIFIED="1542388955145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
   </component>
@@ -39,8 +36,8 @@
     <session id="1558993281">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
-          <entry key="project.open.time.10" value="3" />
+          <entry key="project.closed" value="21" />
+          <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="1" />
@@ -50,7 +47,7 @@
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -61,7 +58,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6417" />
+          <entry key="Python" value="6639" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -76,7 +73,7 @@
         <counts>
           <entry key="Python Console" value="1" />
           <entry key="Shield" value="169" />
-          <entry key="py" value="6247" />
+          <entry key="py" value="6469" />
         </counts>
       </usages-collector>
     </session>
@@ -117,19 +114,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Myalgorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="344" column="21" lean-forward="true" selection-start-line="344" selection-start-column="21" selection-end-line="344" selection-end-column="21" />
+            <state relative-caret-position="-409">
+              <caret line="347" column="10" selection-start-line="347" selection-start-column="10" selection-end-line="347" selection-end-column="10" />
               <folding>
                 <element signature="e#187#923#0" />
                 <element signature="e#956#2101#0" />
                 <element signature="e#2128#2382#0" />
                 <element signature="e#2408#2925#0" />
-                <marker date="1542437725823" expanded="true" signature="8016:8050" ph="..." />
-                <marker date="1542437725823" expanded="true" signature="8262:8310" ph="..." />
-                <marker date="1542437725823" expanded="true" signature="8323:8372" ph="..." />
-                <marker date="1542437725823" expanded="true" signature="8409:8414" ph="..." />
-                <marker date="1542437725823" expanded="true" signature="8455:8460" ph="..." />
-                <marker date="1542437725823" expanded="true" signature="8503:8508" ph="..." />
+                <element signature="e#2955#3714#0" />
+                <element signature="e#3815#4506#0" />
+                <element signature="e#4678#4921#0" />
+                <element signature="e#4967#5152#0" />
+                <element signature="e#5197#5398#0" />
+                <element signature="e#5555#5607#0" />
+                <element signature="e#5772#6174#0" />
+                <element signature="e#6218#6313#0" />
+                <element signature="e#6353#6389#0" />
+                <element signature="e#6525#6792#0" />
+                <element signature="e#6849#7164#0" />
+                <element signature="e#7221#7549#0" />
+                <element signature="e#7598#7919#0" />
+                <marker date="1542628458821" expanded="true" signature="8062:8100" ph="..." />
+                <marker date="1542628458821" expanded="true" signature="8334:8344" ph="..." />
+                <marker date="1542628458821" expanded="true" signature="8857:8858" ph="..." />
+                <marker date="1542628458821" expanded="true" signature="8857:9049" ph="..." />
               </folding>
             </state>
           </provider>
@@ -168,8 +176,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-132" />
-    <option name="y" value="-16" />
+    <option name="x" value="558" />
+    <option name="y" value="402" />
     <option name="width" value="1390" />
     <option name="height" value="1836" />
   </component>
@@ -377,8 +385,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49962208" weight="0.296343" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.36948296" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49962208" weight="0.41221374" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36895674" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -395,7 +403,7 @@
       <window_info anchor="right" id="SciView" order="3" weight="0.32955405" />
       <window_info anchor="right" id="Database" order="4" weight="0.32955405" />
       <window_info anchor="right" id="Coverage" order="5" side_tool="true" weight="0.32995737" />
-      <window_info anchor="right" x="0" y="0" width="295" height="725" id="Documentation" order="6" side_tool="true" visible="true" weight="0.20634921" />
+      <window_info anchor="right" x="0" y="0" width="295" height="725" id="Documentation" order="6" side_tool="true" weight="0.42857143" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.08692366" />
@@ -511,19 +519,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Myalgorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="344" column="21" lean-forward="true" selection-start-line="344" selection-start-column="21" selection-end-line="344" selection-end-column="21" />
+        <state relative-caret-position="-409">
+          <caret line="347" column="10" selection-start-line="347" selection-start-column="10" selection-end-line="347" selection-end-column="10" />
           <folding>
             <element signature="e#187#923#0" />
             <element signature="e#956#2101#0" />
             <element signature="e#2128#2382#0" />
             <element signature="e#2408#2925#0" />
-            <marker date="1542437725823" expanded="true" signature="8016:8050" ph="..." />
-            <marker date="1542437725823" expanded="true" signature="8262:8310" ph="..." />
-            <marker date="1542437725823" expanded="true" signature="8323:8372" ph="..." />
-            <marker date="1542437725823" expanded="true" signature="8409:8414" ph="..." />
-            <marker date="1542437725823" expanded="true" signature="8455:8460" ph="..." />
-            <marker date="1542437725823" expanded="true" signature="8503:8508" ph="..." />
+            <element signature="e#2955#3714#0" />
+            <element signature="e#3815#4506#0" />
+            <element signature="e#4678#4921#0" />
+            <element signature="e#4967#5152#0" />
+            <element signature="e#5197#5398#0" />
+            <element signature="e#5555#5607#0" />
+            <element signature="e#5772#6174#0" />
+            <element signature="e#6218#6313#0" />
+            <element signature="e#6353#6389#0" />
+            <element signature="e#6525#6792#0" />
+            <element signature="e#6849#7164#0" />
+            <element signature="e#7221#7549#0" />
+            <element signature="e#7598#7919#0" />
+            <marker date="1542628458821" expanded="true" signature="8062:8100" ph="..." />
+            <marker date="1542628458821" expanded="true" signature="8334:8344" ph="..." />
+            <marker date="1542628458821" expanded="true" signature="8857:8858" ph="..." />
+            <marker date="1542628458821" expanded="true" signature="8857:9049" ph="..." />
           </folding>
         </state>
       </provider>

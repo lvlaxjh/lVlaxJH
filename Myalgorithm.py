@@ -336,28 +336,54 @@ def Shell_Sort(Num_List=[]):
 
 
 # -------------------------------------------------------------------------
+# Binary tree
+# 传参:输入(all)
+# 返回:树(list)
+# 创建树
 def Create_Tree():
-    Tree=MainN()
+    Tree = MainN()
     return Tree
-def MainN():
-    Tree_List=[None,None,None]
-    DataNode=input()
-    if DataNode=='`':
-        return
-    Tree_List[1]=DataNode
-    Tree_List[0]=LeftN()
-    Tree_List[2]=RightN()
-    return Tree_List
-def LeftN():
-    Tree_List_L=MainN()
-    return Tree_List_L
-def RightN():
-    Tree_List_R=MainN()
-    return Tree_List_R
 
+
+def MainN():
+    Tree_List = [None, None, None]
+    DataNode = input()
+    if DataNode == '`':
+        return None
+    Tree_List[1] = DataNode
+    Tree_List[0] = MainN()  # Left
+    Tree_List[2] = MainN()  # Right
+    return Tree_List
+
+
+# 先序遍历
 def Preorder_Traversal(Tree_List=[]):
-    pass
+    if Tree_List == None:
+        return
+    else:
+        print(Tree_List[1])
+    Preorder_Traversal(Tree_List[0])  # Left
+    Preorder_Traversal(Tree_List[2])  # Right
+    return Tree_List
+
+
+# 中序遍历
 def Inorder_Traversal(Tree_List=[]):
-    pass
+    Preorder_Traversal(Tree_List[0])  # Left
+    if Tree_List == None:
+        return
+    else:
+        print(Tree_List[1])
+    Preorder_Traversal(Tree_List[2])  # Right
+    return Tree_List
+
+
+# 后序遍历
 def Postorder_Traversal(Tree_List=[]):
-    pass
+    Preorder_Traversal(Tree_List[0])  # Left
+    Preorder_Traversal(Tree_List[2])  # Right
+    if Tree_List == None:
+        return
+    else:
+        print(Tree_List[1])
+    return Tree_List
