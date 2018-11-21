@@ -1,39 +1,24 @@
 from xpinyin import Pinyin
 import re
-
-#
-piny = Pinyin()
-
-
-#
-def Main_Shield(Input_str=''):
-    #
-    Input_Piny_List = []
-    #
-    Input_Piny_List = Get_Input_Piny(Input_str)
-    print(Input_Piny_List)
-
-
-def Get_Input_Piny(Input_str=''):
-    # IsChinese=re.compile()
-    GetStr = ''
-    for i in Input_str:
-        FindCHinese = re.search(u'[\u4e00-\u9fa5]+', i)
-        FindEnglish_or_Number = re.search('[a-zA-Z0-9]', i, re.I)
-        if FindCHinese:#中文
-            GetStr = GetStr + i
-        elif FindEnglish_or_Number:#英文\数字
-            GetStr = GetStr + i
-    Input_str=GetStr
-    Input_Piny_List = []
-    Input_Piny = piny.get_pinyin(Input_str, ' ')
-    Input_Piny_List = Input_Piny.split(' ')
-    return Input_Piny_List
+#Input_Piny = piny.get_pinyin(Input_str, ' ')
+ShieldWordTree=[]
+def CreateSWT():
+    Word=input()
+    Word_List=[]
+    for i in Word:
+        Word_List.append(i)
+    i=0
+    ShieldWordTree.append(Create_Tree(i,Word_List))
+    print(ShieldWordTree)
+def Create_Tree(i,WordL=[]):
+    Tree = [None]#创建树节点
+    Tree[0] = WordL[i]#节点0为数据位置
+    i+=1
+    if i<len(WordL):
+        Tree.append(Create_Tree(i,WordL))
+    return Tree
 
 
-def Shield(Input_Piny_List=[]):
-    pass
 
 
-str = input()
-Main_Shield(str)
+CreateSWT()

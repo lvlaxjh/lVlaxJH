@@ -336,9 +336,10 @@ def Shell_Sort(Num_List=[]):
 
 
 # -------------------------------------------------------------------------
-# Binary tree
+# Tree
 # 传参:输入(all)
 # 返回:树(list)
+# Binary tree---
 # 创建树
 def Create_Tree():
     Tree = MainN()
@@ -387,3 +388,16 @@ def Postorder_Traversal(Tree_List=[]):
     else:
         print(Tree_List[1])
     return Tree_List
+
+
+# Common tree---
+def MainNode():
+    Tree = [None]
+    data = input()
+    Tree[0] = data
+    while (True):
+        Node = input()
+        if Node == '`':
+            return Tree
+        elif Node == 'c':
+            Tree.append(MainNode())
