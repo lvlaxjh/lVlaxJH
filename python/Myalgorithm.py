@@ -393,11 +393,19 @@ def Postorder_Traversal(Tree_List=[]):
 # Common tree---
 def MainNode():
     Tree = [None]
-    data = input()
+    data = input("data")
     Tree[0] = data
     while (True):
-        Node = input()
+        Node = input("node")
         if Node == '`':
             return Tree
         elif Node == 'c':
             Tree.append(MainNode())
+
+
+def Common_Preorder_Traversal(Tree_List=[]):
+    for i in Tree_List:
+        if type(i)!=list:
+            print(i)
+        else:
+            Common_Preorder_Traversal(i)
