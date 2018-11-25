@@ -7,52 +7,49 @@ import re
 
 def Create_SWT():
     ShieldWordTree = []
-    while (True):
-        word = input()
-        if word == '`':
+    while(True):
+        word=input('input--->')
+        if word=='`':#退出
             break
         if ShieldWordTree!=[]:
-            Traversal(word, ShieldWordTree)
+            for i in ShieldWordTree:
+                Common_Preorder_Traversal(word,i)
         ShieldWordTree.append(Common_Tree(word))
-        print(ShieldWordTree)
-
     return ShieldWordTree
 
+def Common_Tree(word):
+    this_word=word
+    tree=[]
+    tree.append(this_word[0])
+    this_word=this_word[1:]
+    if this_word=='':#写入完成
+        return tree
+    tree.append(Common_Tree(this_word))
+    return tree
 
-def Common_Tree(Word):
-    this_Word = Word
-    Tree = [None]
-    if this_Word == '':
-        return Tree
-    Tree[0] = Word[0]
-    this_Word = this_Word[1:]
-    Tree.append(Common_Tree(this_Word))
-    return Tree
-
-
-def Traversal(word,ShieldWordTree=[]):
-    for i in ShieldWordTree:
-        Common_Preorder_Traversal(word,i)
-
-
-def Common_Preorder_Traversal(word,Tree_List=[]):
+tree_bool=False
+T_bool=False
+def Common_Preorder_Traversal(word,tree_List=[]):
+    global tree_bool
+    global T_bool
     this_word=word
     if this_word=='':
         return
-    for i in Tree_List:
-        if i==None and this_word!='':
-            print(this_word)
-        if type(i) != list:
-            if this_word[0]==i:
-                print(i)
+    for i in tree_List:
+        if type(i)!=list:#树中内容判断
+            if i==this_word[0]:
                 this_word=this_word[1:]
-            # else:#树中插入节点
-
-                # Common_Tree(word)
-                # return
-        else:
+                print(i)
+                T_bool=True
+            else:
+                T_bool = False
+                tree_bool=True
+                return False
+        if type(i)==list:
             Common_Preorder_Traversal(this_word,i)
+        if tree_bool:
+            #i.append(Common_Tree(this_word))#新建节点,创造树
+            tree_bool=False
+            print(1)
 
-
-All_World_List = Create_SWT()
-
+Create_SWT()
