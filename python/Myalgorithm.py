@@ -370,19 +370,19 @@ def Preorder_Traversal(Tree_List=[]):
 
 # 中序遍历
 def Inorder_Traversal(Tree_List=[]):
-    Preorder_Traversal(Tree_List[0])  # Left
+    Inorder_Traversal()(Tree_List[0])  # Left
     if Tree_List == None:
         return
     else:
         print(Tree_List[1])
-    Preorder_Traversal(Tree_List[2])  # Right
+    Inorder_Traversal(Tree_List[2])  # Right
     return Tree_List
 
 
 # 后序遍历
 def Postorder_Traversal(Tree_List=[]):
-    Preorder_Traversal(Tree_List[0])  # Left
-    Preorder_Traversal(Tree_List[2])  # Right
+    Postorder_Traversal()(Tree_List[0])  # Left
+    Postorder_Traversal(Tree_List[2])  # Right
     if Tree_List == None:
         return
     else:
@@ -409,3 +409,9 @@ def Common_Preorder_Traversal(Tree_List=[]):
             print(i)
         else:
             Common_Preorder_Traversal(i)
+
+
+a=Create_Tree()
+# Preorder_Traversal(a)
+# Inorder_Traversal(a)
+Postorder_Traversal(a)
