@@ -11,10 +11,15 @@ def Create_SWT():
         word = input('input--->')
         if word == '`':  # 退出
             break
-        # if ShieldWordTree != []:
-        #     for i in ShieldWordTree:
-        #         Common_Preorder_Traversal(len(i),word, i)
-        ShieldWordTree.append(Common_Tree(word))
+        if ShieldWordTree==[]:
+            ShieldWordTree.append(Common_Tree(word))#若树为空,直接加入元素
+        else:
+            for i in ShieldWordTree:#遍历所有根节点
+                if word[0]!=i[0]:#若一个根节点不同,直接创建新节点
+                    ShieldWordTree.append(Common_Tree(word))
+                else:
+                    Common_Preorder_Traversal(word,i)#否则,进入比较创建树
+        print(ShieldWordTree)#--->打印树
     return ShieldWordTree
 
 
@@ -32,19 +37,6 @@ def Common_Tree(word):
 tree_bool = False
 T_bool = False
 
-#情况:
-#1.word短,不同->v
-#2.word相等长,不同->v
-#3.word相等长,相同->v
-#4.word长,基础部分不同->v
-#5.word长,基础部分相同
-# tree_deep=0
-# def find_deep(tree_List=[]):
-#     tree_deep+=1
-#     if len(tree_List)==1:
-#         return tree_deep
-#     elif len(tree_List)==2:
-#         find_deep(tree_List)
 word_shield=False
 def Common_Preorder_Traversal(word, tree_List=[]):
     global  word_shield
@@ -72,15 +64,8 @@ def Common_Preorder_Traversal(word, tree_List=[]):
             return
 
 
+test1=[['1', ['2', ['3']], ['3', ['4']]]]
 
-
-
-c=['1']
-a=['1', ['2', ['3']]]
-e=['1', ['2']]
-b=input()
-Common_Preorder_Traversal(b,a)
-print(a)
-
-#1234
-#1245
+a=input()
+Common_Preorder_Traversal(a,test1)
+# Create_SWT()
