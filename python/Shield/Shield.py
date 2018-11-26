@@ -38,40 +38,49 @@ T_bool = False
 #3.word相等长,相同->v
 #4.word长,基础部分不同->v
 #5.word长,基础部分相同
-def Common_Preorder_Traversal(deep,word, tree_List=[]):
-    global tree_bool
-    global T_bool
+# tree_deep=0
+# def find_deep(tree_List=[]):
+#     tree_deep+=1
+#     if len(tree_List)==1:
+#         return tree_deep
+#     elif len(tree_List)==2:
+#         find_deep(tree_List)
+word_shield=False
+def Common_Preorder_Traversal(word, tree_List=[]):
+    global  word_shield
+    this_word=word
     this_tree_list=tree_List
-    this_word = word
-    if len(this_word)>1 and deep == 1:  # 当word较长,且树只有根节点时
-        this_word=this_word[1:]
-        tree_List.append(Common_Tree(this_word))  # 新建节点,创造树
-        print('!')
-        return
-    if this_word == '':
-        return
     for i in this_tree_list:
-        if type(i) != list:  # 树中内容判断
-            if i == this_word[0]:
-                this_word = this_word[1:]
-                print(i)
-            else:
-                tree_bool = True
-                return
-        if type(i) == list:
-            Common_Preorder_Traversal(deep,this_word, i)
-        if tree_bool and type(i) == list:
-            i.append(Common_Tree(this_word))#新建节点,创造树
-            tree_bool = False
-            print(1)
+        if type(i) !=list:#为数据段
+            if i ==this_word[0]:
+                this_word=this_word[1:]
+            else:#文字不匹配
+                word_shield=True
+                return this_word
+        if type(i)==list:#为节点,进行递归
+            Common_Preorder_Traversal(this_word,i)
+        if type(i)==list and len(i)==1 and len(this_word)>1:#word较长,且基础部分相同
+            i.append(Common_Tree(this_word[1:]))
+            return
+        if this_word=='':
+            return this_word
+        # if word_shield and type(i)==list and len(i)==1:
+        #     return
+        if word_shield and type(i)==list:#新建树节点,将不匹配内容写入树中
+            this_tree_list.append(Common_Tree(this_word))
+            word_shield=False
             return
 
-        # if this_word != '' and type(i) == list:#word的较长,树为完整树
-        #     i.append(Common_Tree(this_word))  # 新建节点,创造树
-        #     print('@')
-        #     return
+
+
+
+
 c=['1']
 a=['1', ['2', ['3']]]
+e=['1', ['2']]
 b=input()
-Common_Preorder_Traversal(len(a),b,a)
+Common_Preorder_Traversal(b,a)
 print(a)
+
+#1234
+#1245
