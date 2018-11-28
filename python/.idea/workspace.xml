@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eb388a9-54ca-48fa-9429-df1545ef41b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myalgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Myalgorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shield/Dict_Tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shield/Dict_Tree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shield/lib.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shield/CreateT.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shield/Dict_Tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shield/Shield.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shield/allword.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shield/badwordlib.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shield/useahocorasick.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shield/useahocorasick.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,12 +17,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/python$useahocorasick.coverage" NAME="useahocorasick Coverage Results" MODIFIED="1543377030316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
-    <SUITE FILE_PATH="coverage/python$CreateT.coverage" NAME="CreateT Coverage Results" MODIFIED="1543234316487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
+    <SUITE FILE_PATH="coverage/python$fileoperation.coverage" NAME="fileoperation Coverage Results" MODIFIED="1543414944584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
+    <SUITE FILE_PATH="coverage/python$useahocorasick.coverage" NAME="useahocorasick Coverage Results" MODIFIED="1543415206340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
     <SUITE FILE_PATH="coverage/python$ahocorasick.coverage" NAME="ahocorasick Coverage Results" MODIFIED="1543338886235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
+    <SUITE FILE_PATH="coverage/python$Myalgorithm.coverage" NAME="Myalgorithm Coverage Results" MODIFIED="1543376594408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python$Shield.coverage" NAME="Shield Coverage Results" MODIFIED="1543234260157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
     <SUITE FILE_PATH="coverage/python$Dict_Tree.coverage" NAME="Dict_Tree Coverage Results" MODIFIED="1543250081786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
-    <SUITE FILE_PATH="coverage/python$Myalgorithm.coverage" NAME="Myalgorithm Coverage Results" MODIFIED="1543376594408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python$CreateT.coverage" NAME="CreateT Coverage Results" MODIFIED="1543234316487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Shield" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -77,31 +80,35 @@
     <session id="544315327">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.21" value="2" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3199" />
+          <entry key="py" value="4970" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3199" />
+          <entry key="Python" value="4970" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="11" />
+          <entry key="py" value="15" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="11" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
     </session>
@@ -110,52 +117,84 @@
     <favorites_list name="python" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Shield/useahocorasick.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#470#962#0" />
-                <marker date="1543377030241" expanded="true" signature="34:138" ph="..." />
-                <marker date="1543377030241" expanded="true" signature="738:1237" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Myalgorithm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6218">
-              <caret line="411" lean-forward="true" selection-start-line="411" selection-end-line="411" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.33958334">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Shield/useahocorasick.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="594">
+                  <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                    <marker date="1543415206331" expanded="true" signature="2522:2523" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Shield/fileoperation.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="757">
+                  <caret line="78" selection-start-line="78" selection-end-line="78" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Shield/useahocorasick.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="771">
+                  <caret line="86" column="24" lean-forward="true" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                    <marker date="1543415206331" expanded="true" signature="2522:2523" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>input_txt_all</find>
+      <find>initials_tree</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>input_txt_all_NEW</replace>
+      <replace>__initials_tree</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Shield/useahocorasick.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Shield/Dict_Tree.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Shield/CreateT.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Shield/Shield.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Myalgorithm.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Shield/fileoperation.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/XiaoM/ChatUSuppert.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Myalgorithm.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Shield/Shield - 副本.py" />
-        <option value="$PROJECT_DIR$/Shield/Shield.py" />
         <option value="$PROJECT_DIR$/Shield/CreateT.py" />
         <option value="$PROJECT_DIR$/Shield/Dict_Tree.py" />
         <option value="$PROJECT_DIR$/Shield/ahocorasick.py" />
         <option value="$PROJECT_DIR$/Myalgorithm.py" />
+        <option value="$PROJECT_DIR$/Shield/Shield.py" />
+        <option value="$PROJECT_DIR$/Shield/fileoperation.py" />
         <option value="$PROJECT_DIR$/Shield/useahocorasick.py" />
       </list>
     </option>
@@ -167,10 +206,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1390" />
-    <option name="height" value="1836" />
+    <option name="x" value="597" />
+    <option name="y" value="-10" />
+    <option name="width" value="656" />
+    <option name="height" value="496" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -182,6 +221,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="badwordlib&#9;FILE&#9;file://C:/Users/Administrator/Desktop/lVlaxJH/python/Shield/badwordlib.txt" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -201,28 +241,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.useahocorasick">
-    <configuration name="CreateT" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Shield" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Shield/CreateT.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Dict_Tree" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -289,6 +307,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="fileoperation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Shield" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Shield/fileoperation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="useahocorasick" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -312,19 +352,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.CreateT" />
       <item itemvalue="Python.Dict_Tree" />
       <item itemvalue="Python.ahocorasick" />
       <item itemvalue="Python.useahocorasick" />
       <item itemvalue="Python.Myalgorithm" />
+      <item itemvalue="Python.fileoperation" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.useahocorasick" />
+        <item itemvalue="Python.fileoperation" />
         <item itemvalue="Python.Myalgorithm" />
         <item itemvalue="Python.ahocorasick" />
         <item itemvalue="Python.Dict_Tree" />
-        <item itemvalue="Python.CreateT" />
       </list>
     </recent_temporary>
   </component>
@@ -351,16 +391,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1381" height="925" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.253109" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25260416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2494331" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32955405" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.28834355" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2576687" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.2217701" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2573754" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32912987" />
@@ -407,43 +447,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/python3.66/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="310" selection-start-line="310" selection-end-line="310" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/python3.66/Lib/codecs.py" />
     <entry file="file://$PROJECT_DIR$/Shield/Shield - 副本.py" />
-    <entry file="file://$PROJECT_DIR$/Shield/Dict_Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shield/CreateT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shield/Shield.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Shield/Dict_Tree.py" />
+    <entry file="file://$PROJECT_DIR$/Shield/CreateT.py" />
     <entry file="file://$PROJECT_DIR$/Shield/ahocorasick.py" />
-    <entry file="file://$PROJECT_DIR$/XiaoM/ChatUSuppert.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="77" column="110" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/XiaoM/ChatUTuLingAI_test.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -454,19 +462,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Myalgorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6218">
-          <caret line="411" lean-forward="true" selection-start-line="411" selection-end-line="411" />
+        <state relative-caret-position="11097">
+          <caret line="411" selection-start-line="411" selection-end-line="411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shield/Shield.py" />
+    <entry file="file://$PROJECT_DIR$/Shield/badwordlib.txt" />
+    <entry file="file://$PROJECT_DIR$/XiaoM/ChatUSuppert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="77" column="110" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shield/fileoperation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shield/useahocorasick.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="771">
+          <caret line="86" column="24" lean-forward="true" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
           <folding>
-            <element signature="e#470#962#0" />
-            <marker date="1543377030241" expanded="true" signature="34:138" ph="..." />
-            <marker date="1543377030241" expanded="true" signature="738:1237" ph="..." />
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1543415206331" expanded="true" signature="2522:2523" ph="..." />
           </folding>
         </state>
       </provider>
