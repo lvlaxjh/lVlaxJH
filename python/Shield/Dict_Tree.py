@@ -1,5 +1,4 @@
 from xpinyin import Pinyin
-import re
 
 tree_dict={
             '阿':{

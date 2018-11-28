@@ -409,9 +409,3 @@ def Common_Preorder_Traversal(Tree_List=[]):
             print(i)
         else:
             Common_Preorder_Traversal(i)
-
-
-a=Create_Tree()
-# Preorder_Traversal(a)
-# Inorder_Traversal(a)
-Postorder_Traversal(a)
