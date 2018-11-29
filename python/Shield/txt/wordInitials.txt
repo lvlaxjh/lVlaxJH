@@ -5654,7 +5654,7 @@ lzs
 lg
 mx
 mm
-m{4}m{4}p{4}j
+m{4}m{4}p{4}j={MOD}
 mh
 mhyyrs
 mwq
@@ -6662,9 +6662,6 @@ gpyzx
 gdj
 ghdqgszjl
 gxzt
-rl
-reg
-rdsqs
 ldmz
 ldr
 ldrzbc
@@ -8454,3 +8451,7 @@ nmd
 nmsl
 cb
 ljb
+rl
+reg
+rdsqs
+rz

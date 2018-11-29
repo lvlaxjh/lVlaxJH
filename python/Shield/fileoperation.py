@@ -75,4 +75,3 @@ def operating():
     print('提取全中文->完成')
     get_Initials()
     print('首字母提取->完成')
-
