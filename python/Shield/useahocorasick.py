@@ -77,11 +77,13 @@ class Search:
             print(i)
             self.__lvl_3_return_list.append(i)
 
-sea = Search()
-while (True):
-    b = input()
-    sea.create_ahocorasick()
-    sea.text_extraction(b)
-    sea.level_1_search()
-    sea.level_2_search()
-    sea.level_3_search()
+# sea = Search()
+# while (True):
+#     b = input()
+#     sea.create_ahocorasick()
+#     sea.text_extraction(b)
+#     sea.level_1_search()
+#     sea.level_2_search()
+#     sea.level_3_search()
+a=[1,2]
+print(len(a))

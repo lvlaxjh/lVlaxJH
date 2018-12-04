@@ -405,7 +405,27 @@ def MainNode():
 
 def Common_Preorder_Traversal(Tree_List=[]):
     for i in Tree_List:
-        if type(i)!=list:
+        if type(i) != list:
             print(i)
         else:
             Common_Preorder_Traversal(i)
+
+# -------------------------------------------------------------------------
+# graph
+
+def Depth_first_algorithm(graph,start,flag_graph={}):
+    if start not in graph:
+        print('start not in graph')
+        return
+    for i in graph:
+        pass
+def Breadth_first_algorithm():
+
+graph={
+            'a':['b','c'],
+            'b':['c','d'],
+            'c':['d'],
+            'd':['c'],
+            'e':['f'],
+            'f':['c']
+        }
