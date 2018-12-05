@@ -412,20 +412,49 @@ def Common_Preorder_Traversal(Tree_List=[]):
 
 # -------------------------------------------------------------------------
 # graph
-
-def Depth_first_algorithm(graph,start,flag_graph={}):
-    if start not in graph:
-        print('start not in graph')
-        return
+flag_graph={}
+def Depth_first_Search_Traverse(graph):
+    global flag_graph
     for i in graph:
-        pass
-def Breadth_first_algorithm():
+        flag_graph[i]=False
+    for i in graph:
+        if not flag_graph[i]:
+            DFS(graph,i)
+def DFS(graph,node):
+    global flag_graph
+    flag_graph[node]=True
+    Visit(graph,node)
+    w = FirstAdjVex(graph, node)
+    while(True):
+        if w!=None:
+            if not flag_graph[w]:
+                DFS(graph,w)
+            w=NextAdjVex(graph,node,w)
+        else:
+            break
+def Visit(graph,node):
+        print(node)
+def FirstAdjVex(graph,node):
+    if graph[node]==[]:
+        return None
+    else:
+        return graph[node][0]
+def NextAdjVex(graph,node1,node2):
+    if graph[node1].index(node2)==len(graph[node1])-1:
+        return None
+    else:
+        return graph[node1][graph[node1].index(node2)+1]
+def Breadth_first_Search():
+    pass
 
 graph={
-            'a':['b','c'],
-            'b':['c','d'],
-            'c':['d'],
-            'd':['c'],
-            'e':['f'],
-            'f':['c']
+    'v1':['v2','v3'],
+    'v2':['v4'],
+    'v3':['v6','v7'],
+    'v4':['v8'],
+    'v5':['v2','v8'],
+    'v6':['v7'],
+    'v7':[],
+    'v8':[]
         }
+Depth_first_Search_Traverse(graph)
