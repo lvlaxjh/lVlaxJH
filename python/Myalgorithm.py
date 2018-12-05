@@ -156,50 +156,6 @@ def KMP(_strF, _strS):
 
 
 # -------------------------------------------------------------------------
-# 栈#
-class Stack:
-    def __init__(self):
-        self.__stack = []
-        pass
-
-    # 入栈
-    # 传参:入栈内容(all)
-    # 返回:栈(list)
-    def Push(self, Content):
-        self.__stack.append(Content)
-        return self.__stack
-
-    # 出栈
-    # 传参:无
-    # 返回:出栈内容(all)/若栈为空:返回False(bool)
-    def Pop(self):
-        if self.__stack == []:
-            return False
-        this_pop = self.pop
-        return this_pop
-
-    # 求栈长度
-    # 参数:无
-    # 返回:栈长度(int)
-    def Size(self):
-        size = len(self.__stack)
-        return size
-
-    # 清空栈
-    # 传参:无
-    # 返回:None
-    def Delete(self):
-        del self.__stack[:]
-        return None
-
-    # 完整栈
-    # 传参:无
-    # 返回:栈(list)
-    def Show(self):
-        return self.__stack
-
-
-# -------------------------------------------------------------------------
 # GCD algorithm
 # 传参:整数(int),整数(int)
 # 返回:最大公约数(int)
@@ -410,51 +366,87 @@ def Common_Preorder_Traversal(Tree_List=[]):
         else:
             Common_Preorder_Traversal(i)
 
+
 # -------------------------------------------------------------------------
 # graph
-flag_graph={}
+# 深度优先算法
+flag_graph = {}
+
+
 def Depth_first_Search_Traverse(graph):
     global flag_graph
     for i in graph:
-        flag_graph[i]=False
+        flag_graph[i] = False
     for i in graph:
         if not flag_graph[i]:
-            DFS(graph,i)
-def DFS(graph,node):
+            DFS(graph, i)
+
+
+def DFS(graph, node):
     global flag_graph
-    flag_graph[node]=True
-    Visit(graph,node)
+    flag_graph[node] = True
+    Visit(graph, node)
     w = FirstAdjVex(graph, node)
-    while(True):
-        if w!=None:
+    while (True):
+        if w != None:
             if not flag_graph[w]:
-                DFS(graph,w)
-            w=NextAdjVex(graph,node,w)
+                DFS(graph, w)
+            w = NextAdjVex(graph, node, w)
         else:
             break
-def Visit(graph,node):
-        print(node)
-def FirstAdjVex(graph,node):
-    if graph[node]==[]:
+
+
+def Visit(graph, node):
+    print(node)
+
+
+def FirstAdjVex(graph, node):
+    if graph[node] == []:
         return None
     else:
         return graph[node][0]
-def NextAdjVex(graph,node1,node2):
-    if graph[node1].index(node2)==len(graph[node1])-1:
+
+
+def NextAdjVex(graph, node1, node2):
+    if graph[node1].index(node2) == len(graph[node1]) - 1:
         return None
     else:
-        return graph[node1][graph[node1].index(node2)+1]
-def Breadth_first_Search():
-    pass
+        return graph[node1][graph[node1].index(node2) + 1]
 
-graph={
-    'v1':['v2','v3'],
-    'v2':['v4'],
-    'v3':['v6','v7'],
-    'v4':['v8'],
-    'v5':['v2','v8'],
-    'v6':['v7'],
-    'v7':[],
-    'v8':[]
-        }
-Depth_first_Search_Traverse(graph)
+
+# 广度优先算法
+def Breadth_first_Search(graph):
+    global flag_graph
+    for i in graph:
+        flag_graph[i] = False
+    InitQueue = []
+    for i in graph:
+        if not flag_graph[i]:
+            flag_graph[i] = True
+            Visit(graph, i)
+            InitQueue.append(i)
+            while InitQueue != []:
+                node = InitQueue.pop(0)
+                w = FirstAdjVex(graph, node)
+                while (True):
+                    if w != None:
+                        if not flag_graph[w]:
+                            flag_graph[w] = True
+                            Visit(graph, w)
+                            InitQueue.append(w)
+                        w = NextAdjVex(graph, node, w)
+                    else:
+                        break
+
+
+graph = {
+    'v1': ['v2', 'v3'],
+    'v2': ['v4'],
+    'v3': ['v6', 'v7'],
+    'v4': ['v8'],
+    'v5': ['v2', 'v8'],
+    'v6': ['v7'],
+    'v7': [],
+    'v8': []
+}
+Breadth_first_Search(graph)
