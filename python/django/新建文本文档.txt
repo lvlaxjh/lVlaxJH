@@ -1,21 +1,25 @@
-1、在cmd命令行中进入你所想要创建项目的目录，比如d：/project/，
+创建-
+django-admin startproject ***
+数据库-
+pip install mysqlclient
 
-执行命令：
+python mange.py startapp ***
+(将***加入settings.py中INSTALLED_APPS)
+迁移-
+python manage.py makemigrations
+(数据库连接正常)
+python manage.py migrate
+创建超级管理员
+python manage.py createsuperuser
+setting.py里修改-
+后台管理程序语言-
+LANGUAGE_CODE ='zh-Hans' 
+设置时区-
+TIME_ZONE = 'Asia/Shanghai'
 
-d: #进入d盘
-
-dir #查看d盘所有文件
-
-cd project #进入project目录
-
-注：project目录是已存在的目录
-
-2、执行命令：
-
-django-admin startproject demo #创建一个名为demo的项目
-
-3、验证：在windows资源管理器中进入project目录，会发现project目录下已经自动生成了demo的文件夹
-
-执行python manage.py runserver，然后在浏览器中输入127.0.0.1:8000可检测项目是否被启动。
-cd C:\Users\Administrator\Desktop\lVlaxJH\python\django\demo
 python manage.py runserver
+管理员-
+http://127.0.0.1:8000/admin/login/?next=/admin/
+注册应用模块
+
+路由-
