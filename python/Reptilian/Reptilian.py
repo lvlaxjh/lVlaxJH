@@ -20,7 +20,7 @@ def Dota2_hero_data():
         'month': '?time=month',  # 本月
         'week': '?time=week',  # 本周
         ###
-        'allser': '&server=world',  # 全球
+        'allser': '&server=all',  # 全球
         'world': '&server=world',  # 国外
         'china': '&server=cn',  # 中国
         ###
@@ -36,13 +36,14 @@ def Dota2_hero_data():
         'solo': '&ladder=solo'  # solo
         ###
     }
-    url = 'http://www.dotamax.com/hero/rate/' + url_sp['alltime']
+    url = 'http://www.dotamax.com/hero/rate/' + url_sp['week']
     print(url)
     try:
         response = requests.get(url, headers, timeout=5)
     except TimeoutError:
         print('timeout')
-    soup: BeautifulSoup = BeautifulSoup(response.text, 'lxml')
+    # soup: BeautifulSoup = BeautifulSoup(response.text, 'lxml')
+    soup: BeautifulSoup = BeautifulSoup(response.text,'html.parser')
     hero_data_dict = {}
     all_hero_li = soup.find_all('tr')
     for hero in all_hero_li:
