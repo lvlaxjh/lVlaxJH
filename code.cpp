@@ -7,7 +7,7 @@
 #include<stack>
 using namespace std;
 
-string graph[] = { "v1-v2-v3","v2-v4","v3-v6-v7","v4-v8","v5-v8","v6-v7","v7","v8" };
+string graph[] = { "1-2-3","2-4","3-6-7","4-8","5-8","6-7","7","8" };
 bool *flag_graph = new bool[size(graph)];
 void visit(string *graph, int v)
 {
@@ -22,19 +22,19 @@ int NextAdjVex(string *graph, int v, int w)
 	}
 	else
 	{
-		return atoi(a.substr(7, 7).c_str()) - 1;
+		return atoi(a.substr(4, 4).c_str()) - 1;
 	}
 }
 int FirstAdjVex(string *graph, int v)
 {
 	string a = graph[v];
-	if (size(a) == 2)
+	if (size(a) == 1)
 	{
 		return 0;
 	}
 	else
 	{
-		return (atoi(a.substr(4, 4).c_str()) - 1);
+		return (atoi(a.substr(2, 2).c_str()) - 1);
 	}
 }
 void DFS(string *graph, int v)
@@ -49,12 +49,13 @@ void DFS(string *graph, int v)
 		}
 	}
 }
-void DFSTraverse(string *graph, int size_graph)
+void DFSTraverse(string *graph, int size_graph, int graph_node)
 {
 	for (int i = 0; i < size_graph; i++)
 	{
 		flag_graph[i] = false;
 	}
+
 	for (int i = 0; i < size_graph; i++)
 	{
 		if (!flag_graph[i])
@@ -66,7 +67,10 @@ void DFSTraverse(string *graph, int size_graph)
 
 int main()
 {
-	DFSTraverse(graph, size(graph));
+	int input = 0;
+	cout << "输入开始节点" << "-范围:" << "0" << "-" << size(graph) << endl;
+	cin >> input;
+	DFSTraverse(graph, size(graph), input);
 	while (1);
 	return 0;
 }
