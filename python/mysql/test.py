@@ -26,15 +26,15 @@ except:
    print('error')
    db.rollback()
 
-sql = "DELETE FROM `dota2data` WHERE (`heroname`='1') AND (`alluse`='2') AND (`allwin`='3') AND (`state`='4') AND (`times`='5') LIMIT 1"
-try:
-   # 执行SQL语句
-   cursor.execute(sql)
-   # 提交修改
-   db.commit()
-except:
-   # 发生错误时回滚
-   db.rollback()
+# sql = "DELETE FROM `dota2data` WHERE (`heroname`='1') AND (`alluse`='2') AND (`allwin`='3') AND (`state`='4') AND (`times`='5') LIMIT 1"
+# try:
+#    # 执行SQL语句
+#    cursor.execute(sql)
+#    # 提交修改
+#    db.commit()
+# except:
+#    # 发生错误时回滚
+#    db.rollback()
 
 
 sql = "SELECT * FROM dota2data"
