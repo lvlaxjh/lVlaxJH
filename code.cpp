@@ -8,9 +8,8 @@
 #include<queue>
 using namespace std;
 
-string graph[] = { "1-2-3","2-4","3-6-7","4-8","5-2-8","6-7","7","8" };
 int edgeset[2] = { 0,0 };
-bool *flag_graph = new bool[size(graph)];
+
 void edge(string *graph, int v)
 {
 	if (edgeset[0] == 0)
@@ -76,7 +75,7 @@ int FirstAdjVex(string *graph, int v)
 		return (atoi(a.substr(2, 2).c_str()) - 1);
 	}
 }
-void DFS(string *graph, int v)
+void DFS(string *graph, int v, bool *flag_graph)
 {
 	flag_graph[v] = true;
 	edge(graph, v);
@@ -85,11 +84,11 @@ void DFS(string *graph, int v)
 	{
 		if (!flag_graph[w])
 		{
-			DFS(graph, w);
+			DFS(graph, w, flag_graph);
 		}
 	}
 }
-void DFSTraverse(string *graph, int size_graph, int graph_node)
+void DFSTraverse(string *graph, int size_graph, int graph_node, bool *flag_graph)
 {
 	for (int i = 0; i < size_graph; i++)
 	{
@@ -126,11 +125,11 @@ void DFSTraverse(string *graph, int size_graph, int graph_node)
 	{
 		if (!flag_graph[i])
 		{
-			DFS(graph_sort, i);
+			DFS(graph_sort, i, flag_graph);
 		}
 	}
 }
-void BFSTraverse(string *graph, int size_graph, int graph_node)
+void BFSTraverse(string *graph, int size_graph, int graph_node, bool *flag_graph)
 {
 	for (int i = 0; i < size_graph; i++)
 	{
@@ -165,7 +164,7 @@ void BFSTraverse(string *graph, int size_graph, int graph_node)
 		{
 			flag_graph[i] = true;
 			visit(graph_sort, i);
-			edge(graph_sort, i);
+			//edge(graph_sort, i);
 			Q.push(i);
 			while (!Q.empty())
 			{
@@ -177,7 +176,7 @@ void BFSTraverse(string *graph, int size_graph, int graph_node)
 					{
 						flag_graph[w] = true;
 						visit(graph_sort, w);
-						edge(graph_sort, i);
+						//edge(graph_sort, i);
 						Q.push(w);
 					}
 				}
@@ -187,11 +186,22 @@ void BFSTraverse(string *graph, int size_graph, int graph_node)
 }
 int main()
 {
+	//string graph[] = { "1-2-3","2-4","3-6-7","4-8","5-2-8","6-7","7","8" };
+	int graph_all_node = 0;
+	cout << "图节点数" << endl;
+	cin >> graph_all_node;
+	string *graph = new string[graph_all_node];
+	for (int i = 0; i < graph_all_node; i++)
+	{
+		cout << "输入第" << i + 1 << "个节点的节点关系" << "---例:'第*节点-2-3'" << endl;
+		cin >> graph[i];
+	}
 	int input = 0;
-	cout << "输入开始节点" << "-范围:" << "0" << "-" << size(graph) << endl;
+	cout << "输入开始节点" << "-范围:" << "0" << "-" << graph_all_node << endl;
 	cin >> input;
+	bool *flag_graph = new bool[graph_all_node];
 	//DFSTraverse(graph, size(graph), input);
-	BFSTraverse(graph, size(graph), input);
+	BFSTraverse(graph, graph_all_node, input, flag_graph);
 	while (1);
 	return 0;
 }
