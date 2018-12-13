@@ -27,7 +27,7 @@ def Dota2_hero_use_and_win(types):
     except TimeoutError:
         print('timeout')
     # soup: BeautifulSoup = BeautifulSoup(response.text, 'lxml')
-    soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
+    soup= BeautifulSoup(response.text, 'html.parser')
     hero_data_dict = {}
     all_hero_li = soup.find_all('tr')
     # print(all_hero_li)
@@ -57,7 +57,7 @@ def Dota2_hero_gpm_and_epm(types):
     except TimeoutError:
         print('timeout')
     # soup: BeautifulSoup = BeautifulSoup(response.text, 'lxml')
-    soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
+    soup= BeautifulSoup(response.text, 'html.parser')
     hero_data_dict = {}
     all_hero_li = soup.find_all('tr')
     # print(all_hero_li)
@@ -89,7 +89,7 @@ def Dota2_hero_KDA(types):
     except TimeoutError:
         print('timeout')
     # soup: BeautifulSoup = BeautifulSoup(response.text, 'lxml')
-    soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
+    soup = BeautifulSoup(response.text, 'html.parser')
     hero_data_dict = {}
     all_hero_li = soup.find_all('tr')
     # print(all_hero_li)
@@ -133,7 +133,7 @@ def Dota2_hero_dmg_and_treat_arc(types):
     except TimeoutError:
         print('timeout')
     # soup: BeautifulSoup = BeautifulSoup(response.text, 'lxml')
-    soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
+    soup = BeautifulSoup(response.text, 'html.parser')
     hero_data_dict = {}
     all_hero_li = soup.find_all('tr')
     # print(all_hero_li)
@@ -158,34 +158,12 @@ def Dota2_hero_dmg_and_treat_arc(types):
     return hero_data_dict
 
 
-def all_hero_data():
-    url_sp = {
-        ###
-        'alltime': '?time=all',  # 全部
-        'month': '?time=month',  # 本月
-        'week': '?time=week',  # 本周
-        ###
-        'allser': '&server=all',  # 全球
-        'world': '&server=world',  # 国外
-        'china': '&server=cn',  # 中国
-        ###
-        'n': '&skill=n',  # n局
-        'h': '&skill=h',  # h局
-        'vh': '&skill=vh',  # vh局
-        'pro': '&skill=pro',  # 职业
-        'all': '&skill=all',  # 全部
-        ###
-        'allmatch': '&ladder=all',  # 全部比赛
-        'y': '&ladder=y',  # 天梯比赛
-        'nmatch': '&ladder=n',  # 普通比赛
-        'solo': '&ladder=solo'  # solo
-        ###
-    }
+def all_hero_data(types):
+
     hero_name_win_use = {}
     hero_gpm_epm = {}
     hero_kda = {}
     hero_dmg_treat_arc = {}
-    types = url_sp['allser'] + url_sp['all'] + url_sp['allmatch']
     hero_name_win_use = Dota2_hero_use_and_win(types)
     hero_gpm_epm = Dota2_hero_gpm_and_epm(types)
     hero_kda = Dota2_hero_KDA(types)
@@ -247,7 +225,7 @@ def all_hero_data():
     # print(hero_dmg_treat_arc)
 
 
-def input_mysql():
+def input_mysql_all(types):
     db = pymysql.Connect(
         host='localhost',
         port=3306,
@@ -258,14 +236,78 @@ def input_mysql():
     )
     #
     datas = {}
-    datas = all_hero_data()
+    datas = all_hero_data(types)
     #
     # for a in datas['敌法师']:
     #     print(type(a))
 
     for i in datas:
         cursor = db.cursor()
-        sql = '''insert into dota2data(heroname,alluse,allwin,gpm,epm,kda,k,d,a,dmg,treat,arc,state,times)\
+        sql = '''insert into dota2dataall(heroname,allwin,alluse,gpm,epm,kda,k,d,a,dmg,treat,arc,state,times)\
+        values ("%s","%f","%d","%f","%f","%f","%f","%f","%f","%f","%f","%f","%s","%s")''' % (
+            i, datas[i][0], datas[i][1], datas[i][2], datas[i][3], datas[i][4], datas[i][5], datas[i][6], datas[i][7],datas[i][8], datas[i][9], datas[i][10], datas[i][11], datas[i][12])
+        try:
+            # 执行sql语句
+            cursor.execute(sql)
+            # 执行sql语句
+            db.commit()
+        except:
+            # 发生错误时回滚
+            print('error')
+            db.rollback()
+
+    db.close()
+def input_mysql_pro(types):
+    db = pymysql.Connect(
+        host='localhost',
+        port=3306,
+        user='root',
+        passwd='jhczxcvbnm',
+        db='dota2data',
+        charset='utf8'
+    )
+    #
+    datas = {}
+    datas = all_hero_data(types)
+    #
+    # for a in datas['敌法师']:
+    #     print(type(a))
+
+    for i in datas:
+        cursor = db.cursor()
+        sql = '''insert into dota2datapro(heroname,allwin,alluse,gpm,epm,kda,k,d,a,dmg,treat,arc,state,times)\
+        values ("%s","%f","%d","%f","%f","%f","%f","%f","%f","%f","%f","%f","%s","%s")''' % (
+            i, datas[i][0], datas[i][1], datas[i][2], datas[i][3], datas[i][4], datas[i][5], datas[i][6], datas[i][7],datas[i][8], datas[i][9], datas[i][10], datas[i][11], datas[i][12])
+        try:
+            # 执行sql语句
+            cursor.execute(sql)
+            # 执行sql语句
+            db.commit()
+        except:
+            # 发生错误时回滚
+            print('error')
+            db.rollback()
+
+    db.close()
+def input_mysql_vh(types):
+    db = pymysql.Connect(
+        host='localhost',
+        port=3306,
+        user='root',
+        passwd='jhczxcvbnm',
+        db='dota2data',
+        charset='utf8'
+    )
+    #
+    datas = {}
+    datas = all_hero_data(types)
+    #
+    # for a in datas['敌法师']:
+    #     print(type(a))
+
+    for i in datas:
+        cursor = db.cursor()
+        sql = '''insert into dota2datavh(heroname,allwin,alluse,gpm,epm,kda,k,d,a,dmg,treat,arc,state,times)\
         values ("%s","%f","%d","%f","%f","%f","%f","%f","%f","%f","%f","%f","%s","%s")''' % (
             i, datas[i][0], datas[i][1], datas[i][2], datas[i][3], datas[i][4], datas[i][5], datas[i][6], datas[i][7],datas[i][8], datas[i][9], datas[i][10], datas[i][11], datas[i][12])
         try:
@@ -280,8 +322,31 @@ def input_mysql():
 
     db.close()
 
-
 if __name__ == "__main__":
     # all_hero_data()
-    input_mysql()
+    url_sp = {
+        ###
+        'alltime': '?time=all',  # 全部
+        'month': '?time=month',  # 本月
+        'week': '?time=week',  # 本周
+        ###
+        'allser': '&server=all',  # 全球
+        'world': '&server=world',  # 国外
+        'china': '&server=cn',  # 中国
+        ###
+        'n': '&skill=n',  # n局
+        'h': '&skill=h',  # h局
+        'vh': '&skill=vh',  # vh局
+        'pro': '&skill=pro',  # 职业
+        'all': '&skill=all',  # 全部
+        ###
+        'allmatch': '&ladder=all',  # 全部比赛
+        'y': '&ladder=y',  # 天梯比赛
+        'nmatch': '&ladder=n',  # 普通比赛
+        'solo': '&ladder=solo'  # solo
+        ###
+    }
+    input_mysql_all(url_sp['allser']+url_sp['all']+url_sp['allmatch'])
+    input_mysql_pro(url_sp['allser']+url_sp['pro']+url_sp['allmatch'])
+    input_mysql_vh(url_sp['allser']+url_sp['vh']+url_sp['allmatch'])
     # print(type(datetime.datetime.now().strftime('%Y-%m-%d')))
