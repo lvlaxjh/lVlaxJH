@@ -1,8 +1,12 @@
 import pymysql
-
+import datetime
 from sshtunnel import SSHTunnelForwarder
-#data_list数据结构:all_sort_list = [sort_win, sort_use, sort_gpm, sort_epm, sort_kda, sort_k, sort_d, sort_a, sort_dmg, sort_treat,sort_arc]
-def get_data(what_data,nowday):
+
+
+# data_list数据结构:all_sort_list = [sort_win, sort_use, sort_gpm, sort_epm, sort_kda, sort_k, sort_d, sort_a, sort_dmg, sort_treat,sort_arc]
+
+
+def get_data(what_data, nowday):
     # 远程连接数据库获取数据
     with SSHTunnelForwarder(
             ('47.93.36.54', 22),  # B机器的配置
@@ -73,69 +77,119 @@ def get_data(what_data,nowday):
     # {'****':[win,use,gpm,epm,kda,k,d,a,dmg,treat,arc]}
     return all_sort_list
 
-def data_cleaning(sort_list):
+
+def data_cleaning(sort_list, _file):
     name_list = ['win', 'use', 'gpm', 'epm', 'kda', 'k', 'd', 'a', 'dmg', 'treat', 'arc']
     flag = 0
     flag2 = 1
     all_data_float = 0.0
+    positive_ranking = 10
+    negative_ranking = 5
     for i in sort_list:
         print(name_list[flag])
+        _file.write(name_list[flag])
+        _file.write('\n')
         for n in i:
             # print(n[1][flag])
             all_data_float = all_data_float + n[1][flag]
         # print(all_data_float)
         print(all_data_float // len(i))
+        _file.write((str)(all_data_float // len(i)))
+        _file.write('\n')
         all_data_float = 0.0
-        for a in range(10):
-            print(i[a][0], i[a][1][flag])
+        for a in range(positive_ranking):
+            print(i[a][0], i[a][1])
+            _file.write((str)(i[a][0]))
+            _file.write((str)(i[a][1]))
+            _file.write('\n')
         print('----------------')
+        _file.write('----------------' + '\n')
         for a in range(len(i) - 1, -1, -1):
             flag2 += 1
-            print(i[a][0], i[a][1][flag])
-            if flag2 == 6:
+            print(i[a][0], i[a][1])
+            _file.write((str)(i[a][0]))
+            _file.write((str)(i[a][1]))
+            _file.write('\n')
+            if flag2 == negative_ranking + 1:
                 flag2 = 1
                 break;
         flag += 1
 
-def recommend(_data_list):
-    according_to_use_list=_data_list[1]
-    use_20_list=[]
+
+def recommend_hero_in_TT(_data_list):
+    according_to_use_list = _data_list[1]
+    use_20_list = []
     for i in range(20):
         use_20_list.append(according_to_use_list[i])
-    get_win_average=0.0
+    get_win_average = 0.0
     for i in use_20_list:
-        get_win_average=get_win_average+i[1][0]
-    get_win_average=get_win_average/20
-    maybe_recommend_list =[]
+        get_win_average = get_win_average + i[1][0]
+    get_win_average = get_win_average / 20
+    maybe_recommend_list = []
     for i in use_20_list:
-        if i[1][0]>get_win_average:
+        if i[1][0] > get_win_average:
             maybe_recommend_list.append(i)
-    get_use_average=0.0
+    get_use_average = 0.0
     for i in maybe_recommend_list:
-        get_use_average=get_use_average+i[1][1]
-    get_use_average=get_use_average/len(maybe_recommend_list)
-    high_probability_recommend=[]
+        get_use_average = get_use_average + i[1][1]
+    get_use_average = get_use_average / len(maybe_recommend_list)
+    high_probability_recommend = []
     for i in maybe_recommend_list:
-        if i[1][1]>get_use_average:
+        if i[1][1] > get_use_average:
             high_probability_recommend.append(i)
-    true_recommend=[]
-    true_recommend=sorted(high_probability_recommend,key=lambda x:x[1][0])
+    true_recommend = []
+    true_recommend = sorted(high_probability_recommend, key=lambda x: x[1][0])
     true_recommend.reverse()
-    most_true_recommend=true_recommend
-    print(most_true_recommend)
+    most_true_recommend = true_recommend
+    # print(most_true_recommend)
     return most_true_recommend
-dota2_data = {'all': 'dota2dataall',
-              'vh': 'dota2datavh',
-              'pro': 'dota2datapro'}
-now_day = '2018-12-14'#!#
-data_all_sort_list=get_data(dota2_data['all'],now_day)
-data_vh_sort_list=get_data(dota2_data['vh'],now_day)
-data_pro_sort_list=get_data(dota2_data['pro'],now_day)
-print('---全部比赛---')
-data_cleaning(data_all_sort_list)
-print('---天梯高分局---')
-data_cleaning(data_vh_sort_list)
-print('---职业比赛---')
-data_cleaning(data_pro_sort_list)
-recommend(data_all_sort_list)
 
+
+def data_calculation(_data, _file):
+    times = datetime.datetime.now().strftime('%Y-%m-%d')
+    _file.write('更新时间---' + times + '\n')
+    dota2_data = {'all': 'dota2dataall',
+                  'vh': 'dota2datavh',
+                  'pro': 'dota2datapro'}
+
+    data_all_sort_list = get_data(dota2_data['all'], now_day)
+    data_vh_sort_list = get_data(dota2_data['vh'], now_day)
+    data_pro_sort_list = get_data(dota2_data['pro'], now_day)
+    print('---全部比赛---')
+    _file.write('---全部比赛------------------------------' + '\n')
+    data_cleaning(data_all_sort_list, _file)
+    print('---天梯高分局---')
+    _file.write('---天梯高分局------------------------------' + '\n')
+    data_cleaning(data_vh_sort_list, _file)
+    print('---职业比赛---')
+    _file.write('---职业比赛------------------------------' + '\n')
+    data_cleaning(data_pro_sort_list, _file)
+    _file.write(
+        '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@' + '\n')
+    _file.write(
+        '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@' + '\n')
+    _file.write(
+        '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@' + '\n')
+    print('天梯上分推荐:')
+    _file.write('天梯上分推荐------------------------------' + '\n')
+    all_TT = recommend_hero_in_TT(data_all_sort_list)
+    for i in all_TT:
+        print(i)
+        _file.write((str)(i) + '\n')
+    print('天梯高分局上分推荐:')
+    _file.write('天梯高分局上分推荐------------------------------' + '\n')
+    vh_TT = recommend_hero_in_TT(data_vh_sort_list)
+    for i in vh_TT:
+        print(i)
+        _file.write((str)(i) + '\n')
+
+
+file_new = open('new.txt', 'w+', encoding='UTF-8')
+file_old = open('old.txt', 'w+', encoding='UTF-8')
+
+now_day = '2018-12-14'  # !#
+day_ago = '2018-12-14'
+data_calculation(now_day, file_new)
+data_calculation(day_ago, file_old)
+file_new.close()
+file_old.close()
