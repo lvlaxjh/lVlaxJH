@@ -126,17 +126,32 @@ def recommend_hero_in_TT(_data_list):
         get_win_average = get_win_average + i[1][0]
     get_win_average = get_win_average / 20
     maybe_recommend_list = []
-    for i in use_20_list:
-        if i[1][0] > get_win_average:
-            maybe_recommend_list.append(i)
+    while(True):
+        for i in use_20_list:
+            if i[1][0] > get_win_average:
+                maybe_recommend_list.append(i)
+        if len(maybe_recommend_list)<7:
+            get_win_average-=0.5
+            maybe_recommend_list = []
+        else:
+            break
     get_use_average = 0.0
     for i in maybe_recommend_list:
         get_use_average = get_use_average + i[1][1]
     get_use_average = get_use_average / len(maybe_recommend_list)
     high_probability_recommend = []
-    for i in maybe_recommend_list:
-        if i[1][1] > get_use_average:
-            high_probability_recommend.append(i)
+    while(True):
+        for i in maybe_recommend_list:
+            if i[1][1] > get_use_average:
+                high_probability_recommend.append(i)
+        if len(high_probability_recommend)==5:
+            break
+        elif len(high_probability_recommend)>5:
+            get_use_average+=0.5
+            high_probability_recommend=[]
+        elif len(high_probability_recommend)<5:
+            get_use_average-=0.5
+            high_probability_recommend=[]
     true_recommend = []
     true_recommend = sorted(high_probability_recommend, key=lambda x: x[1][0])
     true_recommend.reverse()
@@ -145,13 +160,41 @@ def recommend_hero_in_TT(_data_list):
     return most_true_recommend
 
 
+def recommend_hero_carry(_data_list):
+    # data_list数据结构:all_sort_list = [sort_win, sort_use, sort_gpm, sort_epm, sort_kda, sort_k, sort_d, sort_a, sort_dmg, sort_treat,sort_arc]
+    according_to_gpm_list = _data_list[2]
+    # according_to_epm_list = _data_list[3]
+    use_20_list = []
+    for i in range(20):
+        use_20_list.append(according_to_gpm_list[i])
+    get_gpm_average = 0.0
+    for i in use_20_list:
+        get_gpm_average = get_gpm_average + i[1][2]
+    get_gpm_average = get_gpm_average / 20
+    gpm_more_than_average = []
+    while(True):
+        for i in use_20_list:
+            if i[1][2] > get_gpm_average:
+                gpm_more_than_average.append(i)
+        if len(gpm_more_than_average)<5:
+            get_gpm_average-=0.5
+            gpm_more_than_average=[]
+        else:
+            break
+    according_to_win_list_sort = sorted(gpm_more_than_average, key=lambda x: x[1][0])
+    according_to_win_list_sort.reverse()
+    maybe_recommend = []
+    for i in range(5):
+        maybe_recommend.append(according_to_win_list_sort[i])
+    return maybe_recommend
+
+
 def data_calculation(_data, _file):
     times = datetime.datetime.now().strftime('%Y-%m-%d')
     _file.write('更新时间---' + times + '\n')
     dota2_data = {'all': 'dota2dataall',
                   'vh': 'dota2datavh',
                   'pro': 'dota2datapro'}
-
     data_all_sort_list = get_data(dota2_data['all'], now_day)
     data_vh_sort_list = get_data(dota2_data['vh'], now_day)
     data_pro_sort_list = get_data(dota2_data['pro'], now_day)
@@ -184,12 +227,16 @@ def data_calculation(_data, _file):
         _file.write((str)(i) + '\n')
 
 
-file_new = open('new.txt', 'w+', encoding='UTF-8')
-file_old = open('old.txt', 'w+', encoding='UTF-8')
-
+# file_new = open('new.txt', 'w+', encoding='UTF-8')
+# file_old = open('old.txt', 'w+', encoding='UTF-8')
+#
 now_day = '2018-12-14'  # !#
 day_ago = '2018-12-14'
-data_calculation(now_day, file_new)
-data_calculation(day_ago, file_old)
-file_new.close()
-file_old.close()
+# data_calculation(now_day, file_new)
+# data_calculation(day_ago, file_old)
+# file_new.close()
+# file_old.close()
+
+test_data_list = get_data('dota2dataall', now_day)
+print(recommend_hero_carry(test_data_list))
+print(recommend_hero_in_TT(test_data_list))
