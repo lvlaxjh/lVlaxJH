@@ -8,19 +8,27 @@ from sshtunnel import SSHTunnelForwarder
 
 def get_data(what_data, nowday):
     # 远程连接数据库获取数据
-    with SSHTunnelForwarder(
-            ('47.93.36.54', 22),  # B机器的配置
-            ssh_password="jhczxcvbnm0325!!!",
-            ssh_username="root",
-            remote_bind_address=('127.0.0.1', 3306)) as server:  # A机器的配置
-        db = pymysql.Connect(
-            host='127.0.0.1',
-            port=3306,
-            user='root',
-            passwd='jhczxcvbnm',
-            db='dota2data',
-            charset='utf8'
-        )
+    # with SSHTunnelForwarder(
+    #         ('47.93.36.54', 22),  # B机器的配置
+    #         ssh_password="jhczxcvbnm0325!!!",
+    #         ssh_username="root",
+    #         remote_bind_address=('127.0.0.1', 3306)) as server:  # A机器的配置
+    #     db = pymysql.Connect(
+    #         host='127.0.0.1',
+    #         port=server.local_bind_host,
+    #         user='root',
+    #         passwd='jhczxcvbnm',
+    #         db='dota2data',
+    #         charset='utf8'
+    #     )
+    db = pymysql.Connect(
+                host='127.0.0.1',
+                port=3306,
+                user='root',
+                passwd='jhczxcvbnm',
+                db='dota2data',
+                charset='utf8'
+            )
     cursor = db.cursor()
 
     sql = "SELECT * FROM %s" % what_data
@@ -237,6 +245,8 @@ day_ago = '2018-12-14'
 # file_new.close()
 # file_old.close()
 
-test_data_list = get_data('dota2dataall', now_day)
-print(recommend_hero_carry(test_data_list))
-print(recommend_hero_in_TT(test_data_list))
+# test_data_list = get_data('dota2dataall', now_day)
+# print(recommend_hero_carry(test_data_list))
+# print(recommend_hero_in_TT(test_data_list))
+
+print(get_data('dota2dataall',now_day))
