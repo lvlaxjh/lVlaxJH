@@ -449,4 +449,6 @@ graph = {
     'v7': [],
     'v8': []
 }
-Breadth_first_Search(graph)
+
+
+print(Insertion_Sort([6,3,2,1]))

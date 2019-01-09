@@ -1,5 +1,12 @@
-创建-
-django-admin startproject ***
+创建:
+进入目标目录:
+django-admin startproject [项目名字]
+运行:
+进入根目录:
+python manage.py run server
+
+
+
 数据库-
 pip install mysqlclient
 
