@@ -1,4 +1,4 @@
-"""firstp URL Configuration
+"""djangotest URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from book import views
+from django.http import HttpResponse
 
+def index(request):
+    return HttpResponse('test111111')
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',index),
+    path('book/',views.book),
+    path('book/detail/<book_id>/<category_id>/',views.book_detail),
+    path('book/author/',views.author_detail)
 ]

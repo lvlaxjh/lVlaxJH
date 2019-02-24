@@ -3,9 +3,37 @@
 django-admin startproject [项目名字]
 运行:
 进入根目录:
-python manage.py run server
+python manage.py runserver
+更改端口号:
+python manage.py runserver ****
+同局域网访问:
+python manage.py runserver **.**.**.**:****
+在setting.py文件中,配置ALLOWDED_HOSTS,将本机ip地址添加
+创建app:
+python manage.py startapp *****
+试图函数:
+试图函数的第一个参数是'request'
+试图函数的返回值必须是'django.http.response.HttpResponse'子类的对象
+url传参数:
+1.在url中使用变量的方式:在path第一个参数中,使用'<参数名>',在视图函数中也要加入同名参数,可传递多个
+2.查询字符串方式:在视图函数中使用'request.GET.get('参数名')'
+url命名:
+urlpatterns=[
+    path('',views.index,name='index'),
+    path('login/',views.login,name='login')
+]
+反转:
+redirect(reverse('login'))
+应用命名空间:
+在'app'的'urls.py'中定义'app_name'变量
+app_name='front'
 
-
+urlpatterns=[
+    path('',views.index,name='index'),
+    path('login/',views.login,name='login')
+]
+反转:
+redirect(reverse('front:login'))
 
 数据库-
 pip install mysqlclient
