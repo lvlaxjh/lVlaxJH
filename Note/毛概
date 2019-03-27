@@ -32,5 +32,24 @@
 中国🇨🇳朝鲜🇰🇵越南🇻🇳老挝🇱🇦古巴🇨🇺
 
 
-
-
+NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:", name: UIKeyboardWillShowNotification, object: nil)
+ 
+NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillDisappear:", name:UIKeyboardWillHideNotification, object: nil)
+　　
+func keyboardWillAppear(notification: NSNotification) {
+ 
+        // 获取键盘信息
+        let keyboardinfo = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]
+ 
+        let keyboardheight:CGFloat = (keyboardinfo?.CGRectValue.size.height)!
+ 
+        print("键盘弹起")
+ 
+        print(keyboardheight)
+ 
+    }
+ 
+    func keyboardWillDisappear(notification:NSNotification){
+ 
+        print("键盘落下")
+    }
