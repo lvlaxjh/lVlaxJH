@@ -1,0 +1,310 @@
+try {
+ht5=0;
+if(window.localStorage){ht5=1;}
+var speedTest =  new bds.se.speedMonitor({
+	"logPath":"https://www.baidu.com/splg/s.gif",
+	"nt":"5cab0d90",
+	"flag":"dt",											
+	"sleep":2000												
+});
+
+//IDC:tc un
+speedTest.addTask({
+    "id":"2",
+    "name":"dt",
+    "url":"https://twww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"twww.baidu.com",
+		"round":"10",
+		"hts":ht5,
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:m1 ct
+speedTest.addTask({
+    "id":"3",
+    "name":"dt",
+    "url":"https://jwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"jwww.baidu.com",
+		"round":"10",
+		"hts":ht5,
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:st01 cm
+speedTest.addTask({
+    "id":"4",
+    "name":"dt",
+    "url":"https://swww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"swww.baidu.com",
+		"round":"10",
+		"hts":ht5,
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:nj02 un
+speedTest.addTask({
+    "id":"5",
+    "name":"dt",
+    "url":"https://nj2uwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"nj2uwww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:nj02 cm
+speedTest.addTask({
+    "id":"6",
+    "name":"dt",
+    "url":"https://nj2cmwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"nj2cmwww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:nj02 ct
+speedTest.addTask({
+    "id":"7",
+    "name":"dt",
+    "url":"https://nwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"nwww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:hz01 ct
+speedTest.addTask({
+    "id":"8",
+    "name":"dt",
+    "url":"https://hwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"hwww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:gzhxy cm
+speedTest.addTask({
+    "id":"9",
+    "name":"dt",
+    "url":"https://hxywww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"hxywww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:gzns ct
+speedTest.addTask({
+    "id":"10",
+    "name":"dt",
+    "url":"https://nswww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"nswww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:gzns un
+speedTest.addTask({
+    "id":"11",
+    "name":"dt",
+    "url":"https://nsunwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"nsunwww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:nj04 ct
+speedTest.addTask({
+    "id":"12",
+    "name":"dt",
+    "url":"https://nj4ctwww.baidu.com/nocache/imgdata/sp10.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"nj4ctwww.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:cdn aa
+speedTest.addTask({
+    "id":"13",
+    "name":"dt",
+    "url":"https://cdaa.wonter.net/htpoty.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"cdaa.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:cdn bb
+speedTest.addTask({
+    "id":"14",
+    "name":"dt",
+    "url":"https://cdbb.wonter.net/htpoty.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"cdbb.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:cdn cc
+speedTest.addTask({
+    "id":"15",
+    "name":"dt",
+    "url":"https://cdcc.wonter.net/htpoty.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"cdcc.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:abc
+speedTest.addTask({
+    "id":"16",
+    "name":"dt",
+    "url":"https://panpic.baidu.com/htpoty.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"abc.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//IDC:szwg IPv6
+speedTest.addTask({
+    "id":"17",
+    "name":"dt",
+    "url":"https://wg6m.baidu.com/static/s.gif?v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"wg6m.baidu.com",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//YF-CT
+speedTest.addTask({
+    "id":"18",
+    "name":"dt",
+    "url":"http://180.149.132.195/logo.gif?target=sp10.gif&v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"ctyf",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//TC-UN
+speedTest.addTask({
+    "id":"19",
+    "name":"dt",
+    "url":"http://61.135.185.193/logo.gif?target=sp10.gif&v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"untc",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//ST01-CM
+speedTest.addTask({
+    "id":"20",
+    "name":"dt",
+    "url":"http://111.13.101.22/logo.gif?target=sp10.gif&v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"cmst01",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//BD-CM
+speedTest.addTask({
+    "id":"21",
+    "name":"dt",
+    "url":"http://111.63.66.40/logo.gif?target=sp10.gif&v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"cmbd",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+//BD-UN
+speedTest.addTask({
+    "id":"22",
+    "name":"dt",
+    "url":"http://119.249.50.40/logo.gif?target=sp10.gif&v=b359333dl5cab0d90",
+    "size":"10000",
+    "logData":{
+        "i":"61.51.89.179",
+        "c":"unbd",
+		"round":"10",
+        "ts":"5cab0d90"
+    }
+});
+
+speedTest.start();
+}catch(e){
+}
