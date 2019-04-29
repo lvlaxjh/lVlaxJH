@@ -57,7 +57,7 @@ def Fun_Weather():
     addr_str = str(openurl.read(),encoding = "utf8")
     city = '(.*)' + addr_str[addr_str.find('city') + 7:addr_str.find('adcode') - 4] + '(.*?) .*'
     print(addr_str[addr_str.find('city') + 7:addr_str.find('adcode') - 4])
-    with open(r'txt\\qixiang.txt','r',encoding='UTF-8') as file_obj:
+    with open('./txt/qixiang.txt','r',encoding='UTF-8') as file_obj:
         for f_line in file_obj:
             filestr = f_line.rstrip()
             if re.search(city,filestr,re.M | re.S | re.X):
@@ -121,7 +121,7 @@ def Fun_kuaidi():
     return True
 
 def Fun_ZD():
-    ZD_f = open(r'txt\zidian.txt','r',encoding='UTF-8')
+    ZD_f = open('./txt/zidian.txt','r',encoding='UTF-8')
     sea = input("你想查什么说吧~")
     while True:
             S1_Ins = ZD_f.readline().rstrip()

@@ -34,52 +34,57 @@
 p11
 思想路线:实事求是,就是一切从实际出发,理论联系实际,坚持在实践中检验真理和发展真理.
 
-                                   🐔
-                             🐔你太美
-                          🐔你实在太美
-                           🐔你是太美
-                              🐔你太美
-                         实在是太美🐔你
-               🐔你 实在是太美🐔你  美
+
+
+
+                                               
+                        🐔                      
+                      🐔你太美
+                    🐔你实在太美
+                     🐔你是太美
+                      🐔你太美
+                    实在是太美🐔你
+               🐔你 实在是太美🐔你 美
             🐔你  实在是太美🐔美   太美
         🐔你     实在是太美🐔美      太美        
-    🐔你       实在是太美🐔美          太美
-  🐔你       🐔你实在是美太美          🏀🏀🏀
-🐔 🐔       🐔你实在是太美         🏀🏀🏀🏀🏀
-🐔            🐔你太美裆🐔太啊        🏀🏀🏀🏀
-                🐔你太美裆裆🐔美           🏀🏀🏀
-                  🐔你美裆    裆🐔美
-                   🐔太美         🐔太美
-                     🐔美              🐔美
-                     🐔美                🐔美
-                      🐔美                🐔美
-                      🐔太                🐔太
-                    👞 👞                👞👞
-                    👞 👞                👞👞👞👞
-                    👞👞                👞👞  👞👞
-                   👞👞
+     🐔你       实在是太美🐔美          太美
+   🐔你       🐔你实在是美太美          🏀🏀🏀
+ 🐔 🐔       🐔你实在是太美          🏀🏀🏀🏀🏀
+ 🐔            🐔你太美裆🐔太啊       🏀🏀🏀🏀
+                🐔你太美裆裆🐔美       🏀🏀🏀
+                 🐔你美裆    裆🐔美
+                  🐔太美        🐔太美
+                    🐔美           🐔美
+                    🐔美             🐔美
+                    🐔美             🐔美
+                    🐔太             🐔太
+                   👞 👞            👞👞
+                  👞 👞             👞👞👞
+                  👞👞                     
+
+   
 
 
 
 
-NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:", name: UIKeyboardWillShowNotification, object: nil)
- 
-NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillDisappear:", name:UIKeyboardWillHideNotification, object: nil)
-　　
-func keyboardWillAppear(notification: NSNotification) {
- 
-        // 获取键盘信息
-        let keyboardinfo = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]
- 
-        let keyboardheight:CGFloat = (keyboardinfo?.CGRectValue.size.height)!
- 
-        print("键盘弹起")
- 
-        print(keyboardheight)
- 
-    }
- 
-    func keyboardWillDisappear(notification:NSNotification){
- 
-        print("键盘落下")
-    }
+
+
+<中国革命和中国共产党>
+1939年，第一次提出新民主主义革命的科学概念和总路线的基本内容。
+新民主主义革命的对象:帝国主义和封建主义,官僚资本主义
+反帝的内容:废除一切不平等条约、推翻帝国主义在中国的一切特权、实现中华民族的完全独立。
+反帝的形势:直接的-民族革命,间接的-民主革命(打碎其统治工具)
+新民主主义的基本纲领:
+`新民主主义的政治纲领：推翻帝国主义和封建主义的统治，建立一个无产阶级领导、以工农联盟为基础的、各革命阶级联合专政的新民主主义共和国。`新民主主义的经济纲领：没收封建地主阶级的土地归农民所有，没收官僚资产阶级的垄断资本归新民主主义的国家所有，保护民族工商业。`新民主主义的文化纲领：无产阶级领导的人民大众的反帝反封建的文化，即民族的科学的大众的文化。 
+主要内容——“工农武装割据”:
+主要形式:武装斗争
+基本内容:土地革命
+战略阵地:根据地建设
+
+
+
+
+
+
+
+

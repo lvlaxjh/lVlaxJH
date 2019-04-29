@@ -3,17 +3,17 @@
 django-admin startproject [项目名字]
 运行:
 进入根目录:
-python manage.py runserver
+python3 manage.py runserver
 更改端口号:
-python manage.py runserver ****
+python3 manage.py runserver ****
 同局域网访问:
-python manage.py runserver **.**.**.**:****
+python3 manage.py runserver **.**.**.**:****
 在setting.py文件中,配置ALLOWDED_HOSTS,将本机ip地址添加
 创建app:
 python manage.py startapp *****
-试图函数:
-试图函数的第一个参数是'request'
-试图函数的返回值必须是'django.http.response.HttpResponse'子类的对象
+视图函数:
+视图函数的第一个参数是'request'
+视图函数的返回值必须是'django.http.response.HttpResponse'子类的对象
 url传参数:
 1.在url中使用变量的方式:在path第一个参数中,使用'<参数名>',在视图函数中也要加入同名参数,可传递多个
 2.查询字符串方式:在视图函数中使用'request.GET.get('参数名')'
@@ -34,6 +34,65 @@ urlpatterns=[
 ]
 反转:
 redirect(reverse('front:login'))
+
+模板:
+def index(request):
+    #html = render_to_string("index.html")
+    #return HttpResponse(html)
+    return render(request,'index.html')
+添加路径:
+settings.py中:
+'DIRS': [os.path.join(BASE_DIR, 'templates')]
+会在app中寻找文件(要将app添加到settings.py中的'INSTALLED_APPS',且文件夹必须为templates):
+settings.py中:
+'APP_DIRS': True,
+模板变量(谨防命名冲突):
+可以通过类的方式,模板变量可以传递对象
+context={'username':'123'}#字典类型
+return render(request,'index.html',context=context)
+html中:
+{{ 变量 }}
+传递对象:
+{{ 对象.变量 }}
+获取列表中的值:
+{{ 列表.索引数 }}
+模板中if:
+{% if  %}
+{% elif %}
+{% else %}
+{% endif %}
+模板for...in...:
+{% for ... in ... %}
+{% endfor %}
+模板url:
+<a herf="{% url '命名' %}">...</a>
+传参:
+<a herf="{% url '命名' book_id = '123' %}">...</a>
+跳转:
+模板url:
+<a herf="{% url '命名' %}?next=/">...</a>
+重命名(urls.py):
+urlpatterns=[
+    path('',views.index,name='index'),
+    path('book/detail/<book_id>',views.book_detail,name='book_dtl')#传参
+    path('login/',views.login,name='login')#跳转
+]
+视图(views.py):
+传参:
+def book_detail(request,book_id):
+    test = "123 %s" % book_id
+    return ...
+跳转:
+def login(request):
+    next = request.GET.get('next')
+    test = '123'
+    return ...
+
+过滤器:
+
+表单:
+
+
 
 数据库-
 pip install mysqlclient
@@ -58,3 +117,5 @@ http://127.0.0.1:8000/admin/login/?next=/admin/
 注册应用模块
 
 路由-
+
+

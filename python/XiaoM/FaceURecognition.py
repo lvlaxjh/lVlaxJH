@@ -10,9 +10,11 @@ from matplotlib import pyplot as plt
 import numpy as np
 import face_recognition
 def face_video():
-    face_img_jhc=face_recognition.load_image_file(r'facesave\jhc.jpg')
+    face_img_jhc=face_recognition.load_image_file('./facesave/jhc.jpg')
+    #face_img_jhc = face_recognition.load_image_file('jhc.jpg')
     face_img_jhc_encoding=face_recognition.face_encodings(face_img_jhc)[0]
-    face_img_jj=face_recognition.load_image_file(r'facesave\jj.jpg')
+    face_img_jj=face_recognition.load_image_file('./facesave/jj.jpg')
+    #face_img_jj = face_recognition.load_image_file('jj.jpg')
     face_img_jj_encoding=face_recognition.face_encodings(face_img_jj)[0]
     all_face_enc=[
         face_img_jhc_encoding,
